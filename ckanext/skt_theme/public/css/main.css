@@ -10,7 +10,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&display=swap');
 
-@font-face {
+/* @font-face {
     font-family: 'fira_sansmedium';
     src: url('fonts/firasans-medium-webfont.eot');
     src: url('fonts/firasans-medium-webfont.eot?#iefix') format('embedded-opentype'),
@@ -94,7 +94,7 @@
     font-weight: normal;
     font-style: normal;
 
-}
+} */
 
 /*--------------------------------------------------------------
 # General
@@ -109,7 +109,7 @@ output, ruby, section, summary, time, mark, audio, video {
     padding: 0;
     border: 0;
     font-size: 100%;
-    font: inherit;
+    font: Montserrat !important;
     vertical-align: baseline;}
      
 /* HTML5 display-role reset for older browsers */
@@ -126,6 +126,14 @@ q:before, q:after {
 table {
     border-collapse: collapse;
     border-spacing: 0;}
+p, input, select, small, label{
+  font-family: Montserrat !important;
+}
+
+.module h1{
+  text-transform: uppercase;
+  font-family: Montserrat;
+}
 
 .wrapper {
   background: none;
@@ -145,14 +153,15 @@ table {
 body {
   background: #fff !important;
   padding: 0;
+  font: Montserrat !important;
 }
 
 body a {color: #448ec1;}
 
-h1 {font: normal 32px/1.2em fira_san-semibold, Helvetica, sans-serif !important; color: #51886f !important;}
-h2 {font: normal 20px/1.2 fira_sansbold, Helvetica, sans-serif !important; color: #375a85 !important; text-transform: uppercase !important;}
-h3 {font: normal 20px/1.2 fira_sanssemibold, Helvetica, sans-serif !important; color: #375a85 !important; text-transform: uppercase !important;}
-h4 {font: normal 16px/1.2 fira_sansmedium, Helvetica, sans-serif !important; color: #375a85 !important;}
+h1 {font: normal 32px/1.2em Montserrat, Helvetica, sans-serif; color: #375a85 !important;}
+h2 {font: 700 20px/1.2 Montserrat, Helvetica, sans-serif !important; color: #375a85 !important; text-transform: uppercase !important;}
+h3 {font: 700 20px/1.2 Montserrat, Helvetica, sans-serif !important; color: #375a85 !important; text-transform: uppercase !important;}
+h4 {font: normal 16px/1.2 Montserrat, Helvetica, sans-serif; color: #375a85 !important;}
 
 h1, h2, h3, h4, h5, h6 {margin: 0 0 .7em 0; line-height: 1.2em;}
 h1 a, h2 a, h3 a {text-decoration: none;}
@@ -170,7 +179,7 @@ p {margin-top: 0;}
   font:12px Montserrat, Helvetica, sans-serif; 
   font-weight: 500;
   color: #375A85 !important;
-  border: 4px solid #375A85;
+  border: 2px solid #375A85;
   border-radius: 33px;
   padding: 15px;
   text-align: center;
@@ -180,6 +189,8 @@ p {margin-top: 0;}
   background-color: #375A85;
   text-decoration: none;
   color: #fff !important;
+  transition: all .4s ease;
+-webkit-transition: all .4s ease;
 }
 
 .btn-white{
@@ -197,6 +208,8 @@ p {margin-top: 0;}
   background-color: #fff;
   text-decoration: none;
   color: #375A85 !important;
+  transition: all .4s ease;
+  -webkit-transition: all .4s ease;
 }
 
 #content {padding: 65px 0 100px 0 !important;}
@@ -228,7 +241,7 @@ p {margin-top: 0;}
 }
 
 .toolbar .breadcrumb .active a, .toolbar .breadcrumb a.active, .toolbar, .breadcrumb > li + li:before {
-  font: normal 20px/1.2 fira_sansregular, Helvetica, sans-serif !important;
+  font: normal 20px/1.2 Montserrat, Helvetica, sans-serif !important;
   color: #505050 !important;
 }
 
@@ -258,7 +271,7 @@ p {margin-top: 0;}
 
 .list-unstyled a{
   font-weight: normal !important;
-  font: 14px fira_sansregular, Helvetica, sans-serif;
+  font: 14px Montserrat, Helvetica, sans-serif;
 }
 
 .wrapper {
@@ -294,6 +307,22 @@ p {margin-top: 0;}
 /*--------------------------------------------------------------
 # Header & Login
 --------------------------------------------------------------*/
+
+.account-masthead{
+  background-color: #223855 !important;
+}
+
+.account-masthead .account ul li a {
+  color: #FFFFFF !important;
+}
+
+.account-masthead .account ul li a:hover{
+  color: #FFFFFF !important;
+  background-color: #41ade0 !important;
+  text-decoration: none;
+  transition: all .4s ease;
+  -webkit-transition: all .4s ease;
+} 
 
 .account-masthead.container{
   width: 940px !important;
@@ -372,7 +401,7 @@ p {margin-top: 0;}
 .masthead .navigation {margin-right: 0;}
 
 .masthead nav li {
-    font: normal 18px/1 fira_sansregular, Helvetica, sans-serif;
+    font: 500 18px/1 Montserrat, Helvetica, sans-serif;
 }
 
 .masthead .navigation .nav-pills li a:hover,
@@ -497,7 +526,7 @@ p {margin-top: 0;}
   border: 3px solid #448EC1;
   border-radius: 50px;
   color: #555555;
-  width: 1060px !important;
+  width: 1000px !important;
   height: auto !important;
   font: 30px Montserrat, Helvetica, sans-serif !important;
 }
@@ -520,7 +549,7 @@ p {margin-top: 0;}
 }
 
 #data-centre-logo {
-  font: normal 20px/1.2em fira_sanssemibold, Helvetica, sans-serif;
+  font: bold 20px/1.2em Merriweather, Helvetica, sans-serif !important;
   color: #51886f;
   text-decoration:none;
   text-align: center;
@@ -533,7 +562,7 @@ p {margin-top: 0;}
 
 #data-centre-logo:after {
   content: "by";
-  font: normal 12px/1em fira_sanslight, Helvetica, sans-serif;
+  font: bold 12px/1em Merriweather, Helvetica, sans-serif !important;
   color: #507182;
   display: block;
 }
@@ -542,7 +571,7 @@ p {margin-top: 0;}
 
 #data-centre-logo a {
   color: #51886f;
-  font: normal 32px/1.2em fira_sanssemibold, Helvetica, sans-serif;
+  font: bold 32px/1.2em Merriweather, Helvetica, sans-serif;
 }
 
 #by {
@@ -682,6 +711,8 @@ p {margin-top: 0;}
 #footer .footer-top .footer-links ul a:hover {
   color: #50bcff;
   text-decoration: none;
+  transition: all .4s ease;
+-webkit-transition: all .4s ease;
 }
 #footer .footer-top .footer-contact {
   margin-bottom: 30px;
@@ -742,7 +773,7 @@ p {margin-top: 0;}
 }
 
 .top-logo a{
-  font: bold 47px Merriweather, Helvetica, sans-serif !important;
+  font: bold 38px Merriweather, Helvetica, sans-serif !important;
   color: #FFFFFF !important;
   float: left;
   text-decoration: none !important;
@@ -761,7 +792,7 @@ p {margin-top: 0;}
 }
 
 .main-heading p{
-  font: 700 80px Merriweather, Helvetica, sans-serif !important;
+  font: 700 75px Merriweather, Helvetica, sans-serif !important;
   color: #FFFFFF;
   text-align: center;
   margin-bottom: 200px;
@@ -795,7 +826,7 @@ p {margin-top: 0;}
 
 .index-navi li a{
   color: #fff !important;
-  border: 4px solid #50bcff;
+  border: 2px solid #50bcff;
   border-radius: 33px;
   padding: 15px;
   text-align: center;
@@ -804,6 +835,8 @@ p {margin-top: 0;}
 .index-navi li a:hover{
   background-color: #50bcff;
   text-decoration: none;
+  transition: all .4s ease;
+-webkit-transition: all .4s ease;
 }
 
 /*--------------------------------------------------------------
@@ -821,14 +854,14 @@ p {margin-top: 0;}
   list-style: none;
   text-align: center;
   text-transform: uppercase;
-  margin: 15px;
+  margin: 30px;
 }
 
 
 #section-categories li a{
   background-size: contain;
-  width: 200px;
-  height: 150px;
+  width: 130px;
+  height: 130px;
   display: inline-block;
 }
 
@@ -844,6 +877,8 @@ p {margin-top: 0;}
 #section-categories a:hover{
   text-decoration: none;
   font-weight: 600 !important;
+  transition: all .4s ease;
+-webkit-transition: all .4s ease;
 }
 
 #cat-habitat{background: url("gfx/habitat.png") no-repeat center;}
@@ -858,8 +893,10 @@ p {margin-top: 0;}
 #section-categories li a:hover{
   list-style: none;
   background-size: contain;
-  width: 200px;
-  height: 150px;
+  width: 130px;
+  height: 130px;
+  transition: all .4s ease;
+-webkit-transition: all .4s ease;
 }
 
 #cat-habitat:hover{background: url("gfx/habitat-hover.png") no-repeat center;}
@@ -880,7 +917,7 @@ p {margin-top: 0;}
   justify-content: center;
 }
 #section-about img{
-  width: 650px;
+  width: 600px;
   height: auto;
   border-radius: 30px;
 }
@@ -891,13 +928,17 @@ p {margin-top: 0;}
 }
 
 .col2 p{
-  font:30px Montserrat, Helvetica, sans-serif; 
+  font:25px Montserrat, Helvetica, sans-serif; 
   font-weight: 300;
   color: #395B83;
-  width: 620px;
+  width: 450px;
   margin-top: 45px;
+  margin-left: 20px;
 }
 
+.col2-btn{
+  margin-left: 20px;
+}
 
 /*--------------------------------------------------------------
 # Homepage - Stats Section
@@ -963,6 +1004,7 @@ p {margin-top: 0;}
   position: relative !important;
   margin: auto !important;
   text-align: center;
+  padding: 50px;
 }
 
 
@@ -974,6 +1016,8 @@ p {margin-top: 0;}
 }
 #section-links .card:hover {
   box-shadow: 0 10px 35px 0 rgba(6, 12, 34, 0.2);
+  transition: all .4s ease;
+-webkit-transition: all .4s ease;
 }
 #section-links hr {
   border-top: 5px solid #375A85;
@@ -1149,7 +1193,8 @@ p {margin-top: 0;}
   #logo-box {
     float: left;
     position: relative;
-    top: 43px;
+    top: -8px;
+    left: 8px;
   }
 
   #logo-box p {
@@ -1165,10 +1210,7 @@ p {margin-top: 0;}
 
   #logo-box img {
     position: absolute;
-    bottom: 14px;
-    left: 63px;
-    width: 50px;
-    height: 56px;
+    width: 112px;
     display: block;
   }
 
