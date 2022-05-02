@@ -560,13 +560,6 @@ p {margin-top: 0;}
   text-decoration: none;
 }
 
-#data-centre-logo:after {
-  content: "by";
-  font: bold 12px/1em Merriweather, Helvetica, sans-serif !important;
-  color: #507182;
-  display: block;
-}
-
 #data-centre-logo br {display: none;}
 
 #data-centre-logo a {
@@ -1148,26 +1141,535 @@ p {margin-top: 0;}
   }
 }
 
-@media only screen and (min-width: 1200px) {
-  .wrapper, .site-footer .row, .nav-wrapper .wrapper {
-    width: 960px;
-    margin: 0 auto;
-  }
-}
-
-@media only screen and (min-width: 992px) and (max-width: 1199px){
-  .navbar .btn-navbar {
-      display: block;
-  }
-
+@media screen and (min-width: 320px) and (max-width: 480px){
   .main .container{
+    width: 80% !important;
+  }
+
+  .container-fluid{
+    overflow: hidden;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+
+  #footer .footer-top h4{
+    width: 200px;
+  }
+
+  .navbar-toggle{
+    padding: 0px !important;
+    margin-right: 10px !important;
+  }
+
+  .masthead .container{
+    padding: 0px !important;
+  }
+
+  .top-logo a{
+    font: bold 15px Merriweather, Helvetica, sans-serif !important;
+  }
+
+  #by-index{
+    width: 10px;
+    height: auto;
+    margin-left: 20px !important;
+  }
+
+  #logo-index{
+    width: 55px;
+    height: auto;
+    margin-left: 20px !important;
+  }
+
+  .main-heading p{
+    font: 700 30px Merriweather, Helvetica, sans-serif !important;
+    padding: 5px;
+  }
+
+  .search-giant input{
+    width: 300px !important;
+    font: 11px Montserrat, Helvetica, sans-serif !important;
+  }
+
+  #section-about img{
+    width: 300px;
+  }
+
+  .col1{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .col2 p{
+    font: 11px Montserrat, Helvetica, sans-serif !important;
+    width: 300px;
+    margin: 0px auto;
+    padding: 5px;
+  }
+
+  .dark-blue{
+    font: 30px Merriweather, Helvetica, sans-serif !important;
+  }
+
+  .stats-content p{
+    font: 11px Montserrat, Helvetica, sans-serif;
+  }
+
+  .btn-blue{
+    font: 8px Montserrat, Helvetica, sans-serif !important;
+    border: 2px solid #375A85 !important;
+  }
+
+  .index-navi li a {
+    color: #fff !important;
+    border: 2px solid #50bcff !important;
+    padding: 5px !important;
+  }
+
+  .index-navi li{
+    font: 10px Montserrat, Helvetica, sans-serif !important;
     width: 100%;
   }
+
+  .index-navi ul{
+    padding: 0px;
+  }
+
+  .search-index{
+    margin-top: 140px;
+  }
+
+  .index-navi{
+    margin-top: 330px;
+  }
+
+  #section-categories{
+    display: flex;
+    justify-content: center;
+  }
+
+  #cat-gis{
+    margin-top: 13px !important;
+  }
+
+  #cat-vegetation{
+    margin-top: -14px !important;
+  }
+
+  #cat-infrastructure{
+    margin-top: -14px !important;
+  }
+
+  #section-links h1{
+    font: 700 30px Montserrat, Helvetica, sans-serif !important;
+  }
+
+  .card-text{
+    font: 20px Montserrat, Helvetica, sans-serif !important;
+  }
+
+  #banner video{
+    height: 97%;
+  }
+
+  #section-links .card{
+    margin-bottom: 10px;
+  }
+  #section-categories li{
+    margin: 15px;
+  }
+
+  #section-categories li a{
+    background-size: contain;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+  }
+
+  #section-categories li a:hover{
+    list-style: none;
+    background-size: contain;
+    width: 100px;
+    height: 100px;
+    transition: all .4s ease;
+  -webkit-transition: all .4s ease;
+  }
+
+  #section-categories p{
+    margin-top: 112px;
+    font: 10px Montserrat, Helvetica, sans-serif;
+  }
 }
 
+@media screen and (min-width: 481px) and (max-width: 711px){
+  .main-heading p{
+    font: 700 35px Merriweather, Helvetica, sans-serif !important;
+  }
+
+  .top-logo a{
+    font: bold 25px Merriweather, Helvetica, sans-serif !important;
+  }
+
+  #by-index{
+    width: 16px !important;
+  }
+
+  #logo-index{
+    width: 90px !important;
+  }
+
+  .search-giant input{
+    width: 400px !important;
+    font: 11px Montserrat, Helvetica, sans-serif !important;
+  }
+
+  .search-index{
+    margin-top: 160px;
+  }
+
+  .index-navi li{
+    font: 10px Montserrat, Helvetica, sans-serif;
+    padding: 5px;
+  }
+
+  .index-navi li a{
+    padding: 7px;
+  }
+
+  .index-navi{
+    margin-top: 320px;
+  }
+
+  #section-links .card{
+    margin-bottom: 10px;
+  }
+  #section-categories li{
+    margin: 9px;
+  }
+
+  #section-categories li a{
+    background-size: contain;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+  }
+
+  #section-categories li a:hover{
+    list-style: none;
+    background-size: contain;
+    width: 100px;
+    height: 100px;
+    transition: all .4s ease;
+  -webkit-transition: all .4s ease;
+  }
+
+  #section-categories p{
+    margin-top: 112px;
+    font: 10px Montserrat, Helvetica, sans-serif;
+  }
+
+  #section-about img{
+    width: 500px;
+    height: auto;
+  }
+
+  .col2 p{
+    font: 15px Montserrat, Helvetica, sans-serif;
+  }
+
+  .btn-blue{
+    font: 10px Montserrat, Helvetica, sans-serif;
+  }
+
+  #section-links h1{
+    font: 700 40px Montserrat, Helvetica, sans-serif !important;
+  }
+
+  .dark-blue{
+    font: 45px Merriweather, Helvetica, sans-serif !important;
+  } 
+  
+  .stats-content p{
+    font: 15px Montserrat, Helvetica, sans-serif;
+  }
+}
+
+@media screen and (min-width: 712px) and (max-width: 768px){
+  .main-heading p{
+    font: 700 35px Merriweather, Helvetica, sans-serif !important;
+  }
+
+  .top-logo a{
+    font: bold 25px Merriweather, Helvetica, sans-serif !important;
+  }
+
+  #by-index{
+    width: 16px !important;
+  }
+
+  #logo-index{
+    width: 90px !important;
+  }
+
+  .search-giant input{
+    width: 400px !important;
+    font: 11px Montserrat, Helvetica, sans-serif !important;
+  }
+
+  .search-index{
+    margin-top: 160px;
+  }
+
+  .index-navi li{
+    font: 10px Montserrat, Helvetica, sans-serif;
+  }
+
+  .index-navi li a{
+    padding: 7px;
+  }
+
+  .index-navi{
+    margin-top: 320px;
+  }
+
+  #section-links .card{
+    margin-bottom: 10px;
+  }
+  #section-categories li{
+    margin: 15px;
+  }
+
+  #section-categories li a{
+    background-size: contain;
+    width: 100px;
+    height: 100px;
+    display: inline-block;
+  }
+
+  #section-categories li a:hover{
+    list-style: none;
+    background-size: contain;
+    width: 100px;
+    height: 100px;
+    transition: all .4s ease;
+  -webkit-transition: all .4s ease;
+  }
+
+  #section-categories p{
+    margin-top: 112px;
+    font: 10px Montserrat, Helvetica, sans-serif;
+  }
+
+  #section-about img{
+    width: 500px;
+    height: auto;
+  }
+
+  .col2 p{
+    font: 15px Montserrat, Helvetica, sans-serif;
+  }
+
+  .btn-blue{
+    font: 10px Montserrat, Helvetica, sans-serif;
+  }
+
+  #section-links h1{
+    font: 700 40px Montserrat, Helvetica, sans-serif !important;
+  }
+
+  .dark-blue{
+    font: 45px Merriweather, Helvetica, sans-serif !important;
+  } 
+  
+  .stats-content p{
+    font: 15px Montserrat, Helvetica, sans-serif;
+  }
+}
+
+@media screen and (min-width: 769px) and (max-width: 990px){
+  .main-heading p{
+    font: 700 45px Merriweather, Helvetica, sans-serif !important;
+  }
+
+  .top-logo a{
+    font: bold 25px Merriweather, Helvetica, sans-serif !important;
+  }
+
+  #by-index{
+    width: 16px !important;
+  }
+
+  #logo-index{
+    width: 90px !important;
+  }
+
+  .search-giant input{
+    width: 500px !important;
+    font: 11px Montserrat, Helvetica, sans-serif !important;
+  }
+
+  .search-index{
+    margin-top: 160px;
+  }
+
+  .index-navi li{
+    font: 10px Montserrat, Helvetica, sans-serif;
+  }
+
+  .index-navi li a{
+    padding: 7px;
+  }
+
+  .index-navi{
+    margin-top: 320px;
+  }
+
+  #section-links .card{
+    margin-bottom: 10px;
+  }
+
+  .col2 p{
+    font: 15px Montserrat, Helvetica, sans-serif;
+  }
+
+  .btn-blue{
+    font: 10px Montserrat, Helvetica, sans-serif;
+  }
+
+  #section-links h1{
+    font: 700 40px Montserrat, Helvetica, sans-serif !important;
+  }
+
+  .dark-blue{
+    font: 60px Merriweather, Helvetica, sans-serif !important;
+  } 
+  
+  .stats-content p{
+    font: 30px Montserrat, Helvetica, sans-serif;
+  }
+
+  .col1 {
+    display: flex;
+    justify-content: center;
+  }
+
+  .col2 {
+    margin-left: 45px;
+  }
+
+  #section-categories li{
+    margin: 29px;
+  }
+}
+
+@media screen and (min-width: 991px) and (max-width: 1199px){
+  #section-categories li{
+    margin: 35px;
+  }
+
+  .main-heading p{
+    font: 700 45px Merriweather, Helvetica, sans-serif !important;
+  }
+
+  .top-logo a{
+    font: bold 25px Merriweather, Helvetica, sans-serif !important;
+  }
+
+  #by-index{
+    width: 16px !important;
+  }
+
+  #logo-index{
+    width: 90px !important;
+  }
+
+  .search-giant input{
+    width: 500px !important;
+    font: 11px Montserrat, Helvetica, sans-serif !important;
+  }
+
+  .search-index{
+    margin-top: 160px;
+  }
+
+  .index-navi li{
+    font: 10px Montserrat, Helvetica, sans-serif;
+  }
+
+  .index-navi li a{
+    padding: 7px;
+  }
+
+  .index-navi{
+    margin-top: 320px;
+  }
+
+  #section-links .card{
+    margin-bottom: 10px;
+  }
+
+  .col2 p{
+    font: 15px Montserrat, Helvetica, sans-serif;
+  }
+
+  .btn-blue{
+    font: 10px Montserrat, Helvetica, sans-serif;
+  }
+
+  #section-links h1{
+    font: 700 40px Montserrat, Helvetica, sans-serif !important;
+  }
+
+  .dark-blue{
+    font: 60px Merriweather, Helvetica, sans-serif !important;
+  } 
+  
+  .stats-content p{
+    font: 30px Montserrat, Helvetica, sans-serif;
+  }
+
+  .col1 {
+    display: flex;
+    justify-content: center;
+  }
+
+  .col2 {
+    margin-left: 45px;
+  }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1534px){
+  #section-categories li{
+    margin: 10px;
+  }
+
+  #section-categories li a{
+    width: 115px;
+    height: 115px;
+  }
+
+  #section-categories li a:hover{
+    width: 115px;
+    height: 115px;
+  }
+
+  #section-categories p{
+    margin-top: 135px;
+    font: 10px Montserrat, Helvetica, sans-serif;
+  }
+
+  #section-about img{
+    width: 520px;
+  }
+}
+
+.dataset-heading a{
+  font: bold 14px Montserrat, Helvetica, sans-serif !important;
+}
 
 @media only screen and (min-width: 768px){
-
+  
   #logo-wrappers {
     position:relative;
     margin-top: 45px;
@@ -1219,150 +1721,10 @@ p {margin-top: 0;}
   }
 }
 
-@media only screen and (min-width: 490px) and (max-width: 767px){
-  #data-centre-logo {
-      font: normal 32px/1.2em fira_sanssemibold, Helvetica, sans-serif;
-      float: left;
-      text-align: left;
-      margin-bottom: .7em;
-  }
-
-  .main .container{
-    width: 100%;
-  }
-
-  .main-heading p{
-    font: 700 42px Merriweather, Helvetica, sans-serif;
-  }
-}
-
-@media only screen and (max-width: 489px){
-  .main .container{
-    width: 80% !important;
-  }
-
-  .container-fluid{
-    overflow: hidden;
-    overflow-y: hidden;
-    overflow-x: hidden;
-  }
-
-  #footer .footer-top h4{
-    width: 200px;
-  }
-
-  .navbar-toggle{
-    padding: 0px !important;
-    margin-right: 10px !important;
-  }
-
-  .masthead .container{
-    padding: 0px !important;
-  }
-
-  .top-logo a{
-    font: bold 15px Merriweather, Helvetica, sans-serif !important;
-  }
-
-  #by-index{
-    width: 10px;
-    height: auto;
-    margin-left: 20px !important;
-  }
-
-  #logo-index{
-    width: 55px;
-    height: auto;
-    margin-left: 20px !important;
-  }
-
-  .main-heading p{
-    font: 700 30px Merriweather, Helvetica, sans-serif !important;
-  }
-
-  .search-giant input{
-    width: 250px !important;
-    font: 11px Montserrat, Helvetica, sans-serif !important;
-  }
-
-  #section-about img{
-    width: 300px;
-  }
-
-  .col1{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-
-  .col2 p{
-    font: 20px Montserrat, Helvetica, sans-serif !important;
-    width: 300px;
-    margin: 0px auto;
-  }
-
-  .dark-blue{
-    font: 30px Merriweather, Helvetica, sans-serif !important;
-  }
-
-  .stats-content p{
-    font: 11px Montserrat, Helvetica, sans-serif;
-  }
-
-  .btn-blue{
-    font: 8px Montserrat, Helvetica, sans-serif !important;
-    border: 2px solid #375A85 !important;
-  }
-
-  .index-navi li a {
-    color: #fff !important;
-    border: 2px solid #50bcff !important;
-    padding: 5px !important;
-  }
-
-  .index-navi li{
-    font: 10px Montserrat, Helvetica, sans-serif !important;
-  }
-
-  .index-navi ul{
-    padding: 0px;
-  }
-
-  .search-index{
-    margin-top: 140px;
-  }
-
-  .index-navi{
-    margin-top: 330px;
-  }
-
-  #section-categories{
-    display: flex;
-    justify-content: center;
-  }
-
-  #section-categories li a{
-    width: 125px !important;
-  }
-
-  #cat-gis{
-    margin-top: 15px !important;
-  }
-
-  #cat-vegetation{
-    margin-top: -14px !important;
-  }
-
-  #cat-infrastructure{
-    margin-top: -14px !important;
-  }
-
-  #section-links h1{
-    font: 700 30px Montserrat, Helvetica, sans-serif !important;
-  }
-
-  .card-text{
-    font: 20px Montserrat, Helvetica, sans-serif !important;
+@media only screen and (min-width: 1200px) {
+  .wrapper, .site-footer .row, .nav-wrapper .wrapper {
+    width: 960px;
+    margin: 0 auto;
   }
 }
 
