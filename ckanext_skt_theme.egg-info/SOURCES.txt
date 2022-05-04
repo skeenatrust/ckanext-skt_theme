@@ -12,7 +12,9 @@ ckanext/skt_theme/public/css/main.css
 ckanext/skt_theme/public/css/normalize.css
 ckanext/skt_theme/public/files/licenses.json
 ckanext/skt_theme/templates/base.html
+ckanext/skt_theme/templates/footer.html
 ckanext/skt_theme/templates/header.html
+ckanext/skt_theme/templates/page.html
 ckanext/skt_theme/templates/home/index.html
 ckanext/skt_theme/templates/home/snippets/search.html
 ckanext/skt_theme/templates/package/search.html
