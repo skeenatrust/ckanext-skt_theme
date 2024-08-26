@@ -1,101 +1,168 @@
-/* =====+++++++++++++++++++==================================================
-   Author: Phil Brienesse - Coffee Web Development
-   Updated: Reine Vizcarra - Eclipse Geomatics Ltd.
-   Date Updated: August 2021
-========================================================================== */
-
 /*--------------------------------------------------------------
 # Fonts
 --------------------------------------------------------------*/
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600&display=swap');
 
-/* @font-face {
-    font-family: 'fira_sansmedium';
-    src: url('fonts/firasans-medium-webfont.eot');
-    src: url('fonts/firasans-medium-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/firasans-medium-webfont.woff2') format('woff2'),
-         url('fonts/firasans-medium-webfont.woff') format('woff'),
-         url('fonts/firasans-medium-webfont.ttf') format('truetype'),
-         url('fonts/firasans-medium-webfont.svg#fira_sansmedium') format('svg');
-    font-weight: normal;
-    font-style: normal;
+.container{
+  padding-left: 0px !important;
+  padding-right: 0px !important;
 }
 
-@font-face {
-    font-family: 'fira_sansregular';
-    src: url('fonts/firasans-regular-webfont.eot');
-    src: url('fonts/firasans-regular-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/firasans-regular-webfont.woff2') format('woff2'),
-         url('fonts/firasans-regular-webfont.woff') format('woff'),
-         url('fonts/firasans-regular-webfont.ttf') format('truetype'),
-         url('fonts/firasans-regular-webfont.svg#fira_sansregular') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}  
-
-@font-face {
-    font-family: 'fira_sansbold';
-    src: url('fonts/firasans-bold-webfont.eot');
-    src: url('fonts/firasans-bold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/firasans-bold-webfont.woff2') format('woff2'),
-         url('fonts/firasans-bold-webfont.woff') format('woff'),
-         url('fonts/firasans-bold-webfont.ttf') format('truetype'),
-         url('fonts/firasans-bold-webfont.svg#fira_sansbold') format('svg');
-    font-weight: normal;
-    font-style: normal;
-
+.main .secondary{
+  padding-right: 0px !important;
 }
 
-@font-face {
-    font-family: 'fira_sansbook';
-    src: url('fonts/firasans-book-webfont.eot');
-    src: url('fonts/firasans-book-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/firasans-book-webfont.woff2') format('woff2'),
-         url('fonts/firasans-book-webfont.woff') format('woff'),
-         url('fonts/firasans-book-webfont.ttf') format('truetype'),
-         url('fonts/firasans-book-webfont.svg#fira_sansbook') format('svg');
-    font-weight: normal;
-    font-style: normal;
+
+body{
+  background-color: transparent !important;
 }
 
-@font-face {
-    font-family: 'fira_sansextralight';
-    src: url('fonts/firasans-extralight-webfont.eot');
-    src: url('fonts/firasans-extralight-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/firasans-extralight-webfont.woff2') format('woff2'),
-         url('fonts/firasans-extralight-webfont.woff') format('woff'),
-         url('fonts/firasans-extralight-webfont.ttf') format('truetype'),
-         url('fonts/firasans-extralight-webfont.svg#fira_sansextralight') format('svg');
-    font-weight: normal;
-    font-style: normal;
+.main{
+  padding-top: 50px !important;
 }
 
-@font-face {
-    font-family: 'fira_sanslight';
-    src: url('fonts/firasans-light-webfont.eot');
-    src: url('fonts/firasans-light-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/firasans-light-webfont.woff2') format('woff2'),
-         url('fonts/firasans-light-webfont.woff') format('woff'),
-         url('fonts/firasans-light-webfont.ttf') format('truetype'),
-         url('fonts/firasans-light-webfont.svg#fira_sanslight') format('svg');
-    font-weight: normal;
-    font-style: normal;
+.nav-tabs a{
+  color: #003647 !important;
+}
+
+a:hover, a:active{
+  color: #33afea !important;
+  transition: all .4s ease !important;
+    -webkit-transition: all .4s ease !important;
+    text-decoration: none !important;
+}
+
+.btn-success{
+  color: #fff !important;
+}
+
+.btn-success:hover {
+  color: #fff !important;
+  background-color: #2a602a !important;
+}
+
+.btn-danger{
+  color: #fff !important;
+}
+
+.btn-danger:hover {
+  color: #fff !important;
+  background-color: #b52b27 !important;
+}
+
+/*--------------------------- 
+    HEADER
+-------------------------- */
+.nav-pills{
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  text-align: left !important;
+  width: 100%;
+}
+
+.navbar-left{
+  display: flex !important;
+  text-align: left !important;
+  width: 64%;
+}
+
+.container{
+  padding-left: 0% !important;
+  padding-right: 0% !important;
+}
+
+.masthead .container-nav{
+    position: relative;
+    width: 100% !important; /* Added */
+    background-color: #d2dee1 !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
 } 
 
-@font-face {
-    font-family: 'fira_sanssemibold';
-    src: url('fonts/firasans-semibold-webfont.eot');
-    src: url('fonts/firasans-semibold-webfont.eot?#iefix') format('embedded-opentype'),
-         url('fonts/firasans-semibold-webfont.woff2') format('woff2'),
-         url('fonts/firasans-semibold-webfont.woff') format('woff'),
-         url('fonts/firasans-semibold-webfont.ttf') format('truetype'),
-         url('fonts/firasans-semibold-webfont.svg#fira_sanssemibold') format('svg');
-    font-weight: normal;
-    font-style: normal;
+.masthead .container {
+  position: relative;
+  width: 100% !important; /* Added */
+}
 
-} */
+.container-logo{
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    border: 0px;
+}
 
+header.masthead{
+    background-color: #fff !important;
+    padding: 0px !important;
+    margin-top: 40px;
+}
+
+.account-masthead{
+    background-color: #15689d !important;
+}
+
+.account-masthead .account ul li a{
+    color: #fff !important;
+}
+
+.masthead .nav > li > a {
+    color: #003647 !important;
+    text-transform: uppercase;
+    font-weight: bold !important;
+    padding: 100px auto !important;
+}
+
+.masthead .nav > li:hover a{
+    border-radius: none !important;
+    background-color: transparent !important;
+    color: #15689d !important;
+    transition: all .4s ease !important;
+    -webkit-transition: all .4s ease !important;
+}
+
+.masthead .nav > li:hover a, .masthead .nav li:focus a, .masthead .nav > li.active a{
+    border-radius: none !important;
+    background-color: transparent !important;
+    color: #15689d !important;
+}
+
+
+
+.masthead .navbar-collapse{
+  float: none !important; 
+  position: relative !important; 
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
+  padding-left: 45px;
+  margin-top: 150px !important;
+  width: 100% !important;
+
+}
+
+.navbar-collapse{
+    flex-grow: unset !important;
+    background-color: #375a85;
+}
+
+.navbar-toggle{
+  float: none !important;
+  background-color: #26201d !important;
+  color: #fff !important;
+}
+
+.navbar-toggle:hover{
+  background-color: #33afea !important;
+  color: #fff !important;
+  transition: all .4s ease !important;
+  -webkit-transition: all .4s ease !important;
+}
+
+.masthead .section{
+  margin-left: 20px;
+}
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
@@ -304,6 +371,12 @@ p {margin-top: 0;}
   background: #073748;
   font-size: 20px !important;
 }
+
+.homepage  #content.container{
+  margin-top: 0px;
+  margin-bottom: 0px;
+ } 
+
 /*--------------------------------------------------------------
 # Header & Login
 --------------------------------------------------------------*/
@@ -355,7 +428,6 @@ p {margin-top: 0;}
 .main .container{
   margin-right: auto !important;
   margin-left: auto !important;
-  width: 940px !important;
 }
 
 .masthead {
@@ -409,134 +481,82 @@ p {margin-top: 0;}
     background-color: #41ade0 !important;
 }
 
-/*--------------------------------------------------------------
-# Main Navbar
---------------------------------------------------------------*/
-.navbar .nav > li > a {
-    padding: 21px 23px 14px !important;
+
+/*--------------------------- 
+    PAGES
+-------------------------- */
+.main{
+    background-color: #fff !important;
+}
+
+.wrapper {
+    border: none !important;
+    border-radius: none !important;
+    box-shadow: none !important;
+    min-height: 0px !important;
+    background-color: none !important;
+    position: relative !important;
+    background-color: transparent !important;
+  }
+
+.main .secondary{
+    padding-right: 0px !important;
+}
+
+.module-heading {
     margin: 0 !important;
-    border-radius: 0 !important;
-    line-height: 18px !important;
-}
+    padding: none !important;
+    font-size: 14px !important;
+    line-height: 1.3 !important;
+    background-color: transparent !important;
+    border-top: 1px solid #dddddd !important;
+    border-bottom: 1px solid #dddddd !important;
+  }
+  
+  .breadcrumb > li {
+    display: inline-block !important;
+    font-size: 20px !important;
+    vertical-align: -1px !important;
+  }
+  
+  .homepage #content{
+    padding: 0px !important;
+  }
 
-.navbar.nav li a{
-  padding: 21px 23px 14px !important;
-  margin: 0 !important;
-  border-radius: 0 !important;
-  line-height: 18px !important;
-}
+  .main#content.container{
+    margin-top: 100px;
+    margin-bottom: 100px;
+  } 
 
-#main-nav {
-  width: 100%;
-  background: #375a85;
-}
-#main-nav ul {
-  list-style: none;
-  padding: 0;
-  position: relative;
-  left: -25px;
-}
+  .homepage  #content.container{
+   margin-top: 0px;
+   margin-bottom: 0px;
+  } 
 
-#main-nav li {
-  float: left;
-  color: #448ec1;
-  font: normal 18px/1 fira_sansregular, Helvetica, sans-serif;
-}
+  .search-form{
+    padding: 0px !important;
+    margin: 20px 0 20px 0 !important;
+  }
 
-#main-nav li a {
-  text-decoration: none;
-  color: #fff;
-  font-weight: normal;
-  padding: 21px 23px 14px;
-  display: block;
-}
-
-#main-nav li a:hover {background: #41ade0;}
-
-.nav-pills > li + li {
-  margin-left: 0px !important;
-}
-
-.navbar{
-  border: none !important;
-}
-
-.navbar-toggle{
-  padding: 0px !important;
-}
+  .media-grid{
+    background: none !important;
+  }
 
 
-/*--------------------------------------------------------------
-# Search boxes
---------------------------------------------------------------*/
-.homepage .module-search {
-    padding: 0 !important;
-    border-radius: 50px;
-    background: #fff;
-    color: #fff;
-}
+  .label{
+    color: #fff !important;
+  }
 
-.homepage .module-search .module-content {
-    background: transparent !important;
-    padding: 0 !important;
-}
+  a.label.label-default:hover{
+    background-color: #5e5e5e !important;
+    color: #fff !important;
+    transition: all .4s ease !important;
+      -webkit-transition: all .4s ease !important;
+  }
 
-.homepage .module-search .module-content h3.heading {
-  margin-bottom: 2em !important;
-  font: normal 24px/1.2 fira_sanssemibold, Helvetica, sans-serif !important;
-  color: #375a85;
-  text-transform: uppercase;
-}
-
-#search {margin-bottom: 100px !important;}
-
-#search legend {
-  font: normal 20px/1.2em fira_sansbold, Helvetica, sans-serif !important;
-  text-transform: uppercase !important;
-  color: #375a85 !important;
-  margin-bottom: 2em !important;
-}
-
-#search input {
-  border: 1px solid #779fb8 !important;
-  border-radius: 10px !important;
-  width: 740px !important;
-  padding: 10px 20px !important;
-  font: normal 32px/1em fira_sanslight, Helvetica, sans-serif !important;
-  color: #51886f !important;
-  float: left !important;
-}
-
-#search button {
-  font: normal 24px/1em fira_sansbold, Helvetica, sans-serif;
-  text-transform: uppercase;
-  text-align: center;
-  color: #fff;
-  background: #51886f;
-  border-radius: 10px;
-  width: 166px;
-  padding: 14px 0;
-  margin-left: 8px;
-  float: left;
-  border: 1px solid #51886f;
-}
-
-.search-giant input {
-  background-color: transparent !important;
-  border: 3px solid #448EC1;
-  border-radius: 50px;
-  color: #555555;
-  width: 1000px !important;
-  height: auto !important;
-  font: 30px Montserrat, Helvetica, sans-serif !important;
-}
-
-.search-giant input:focus {
-  border-color: #66afe9;
-  outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, 0.6);
-  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, 0.6);
-}
+  .nav-simple > li > a{
+    padding-left: 35px !important;
+  }
 
 
 /*--------------------------------------------------------------
@@ -589,7 +609,75 @@ p {margin-top: 0;}
   display: none;
 }
 
+/*--------------------------------------------------------------
+# Search boxes
+--------------------------------------------------------------*/
+.homepage .module-search {
+  border: none !important;
+}
 
+.homepage .module-search .module-content {
+  background: transparent !important;
+  padding: 0 !important;
+  border: none;
+}
+
+.homepage .module-search .module-content h3.heading {
+margin-bottom: 2em !important;
+font: normal 24px/1.2 fira_sanssemibold, Helvetica, sans-serif !important;
+color: #375a85;
+text-transform: uppercase;
+}
+
+#search {margin-bottom: 100px !important;}
+
+#search legend {
+font: normal 20px/1.2em fira_sansbold, Helvetica, sans-serif !important;
+text-transform: uppercase !important;
+color: #375a85 !important;
+margin-bottom: 2em !important;
+}
+
+#search input {
+border: 1px solid #779fb8 !important;
+border-radius: 10px !important;
+width: 740px !important;
+padding: 10px 20px !important;
+font: normal 32px/1em fira_sanslight, Helvetica, sans-serif !important;
+color: #51886f !important;
+float: left !important;
+}
+
+#search button {
+font: normal 24px/1em fira_sansbold, Helvetica, sans-serif;
+text-transform: uppercase;
+text-align: center;
+color: #fff;
+background: #51886f;
+border-radius: 10px;
+width: 166px;
+padding: 14px 0;
+margin-left: 8px;
+float: left;
+border: 1px solid #51886f;
+}
+
+.search-giant input {
+background-color: #fff !important;
+border: 3px solid #448EC1;
+border-radius: 50px;
+color: #555555;
+width: 1000px !important;
+height: auto !important;
+font: 30px Montserrat, Helvetica, sans-serif !important;
+}
+
+.search-giant input:focus {
+border-color: #66afe9;
+outline: 0;
+-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, 0.6);
+box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
 
 /*--------------------------------------------------------------
 # Footer
@@ -1047,37 +1135,37 @@ p {margin-top: 0;}
    Helper classes
    ========================================================================== */
 
-.hidden {
-  display: none !important;
-  visibility: hidden;
-}
+   .hidden {
+    display: none !important;
+    visibility: hidden;
+  }
+  
+  .visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  
+  .visuallyhidden.focusable:active,
+  .visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+  }
+  
+  .invisible {
+    visibility: hidden;
+  }
 
-.visuallyhidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  width: auto;
-}
-
-.invisible {
-  visibility: hidden;
-}
-
-/* ==========================================================================
+  /* ==========================================================================
 # Media Queries
  ========================================================================== */
 
@@ -1639,7 +1727,7 @@ p {margin-top: 0;}
   }
 }
 
-@media screen and (min-width: 1200px) and (max-width: 1534px){
+@media screen and (min-width: 1200px){
   #section-categories li{
     margin: 10px;
   }
@@ -1667,6 +1755,7 @@ p {margin-top: 0;}
 .dataset-heading a{
   font: bold 14px Montserrat, Helvetica, sans-serif !important;
 }
+
 
 @media only screen and (min-width: 768px){
   
@@ -1715,21 +1804,17 @@ p {margin-top: 0;}
     width: 112px;
     display: block;
   }
-
-  .main .container{
-    width: 100%;
-  }
 }
 
-@media only screen and (min-width: 1200px) {
+/* @media only screen and (min-width: 1200px) {
   .wrapper, .site-footer .row, .nav-wrapper .wrapper {
     width: 960px;
     margin: 0 auto;
   }
-}
+} */
 
 /* SAFARI specific media queries */
-@media not all and (min-resolution:.001dpcm) { 
+/* @media not all and (min-resolution:.001dpcm) { 
   @supports (-webkit-appearance:none) {
     .search-index{
       margin-top: 200px;
@@ -1739,4 +1824,73 @@ p {margin-top: 0;}
       margin-top: 300px;
     }
   }
+} */
+
+/* Ensure the navbar is full width and aligns below the logos */
+.full-width-navbar {
+    width: 100%;
+    background-color: #375a85; /* Example background color */
+    padding: 0;
+}
+
+.header-logo-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+#data-centre-logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+#by {
+    margin: 0 20px; /* Adjust as needed */
+}
+
+#logo-box {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-nav {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-left: 265px !important;
+}
+
+.navbar-nav li {
+  padding: 21px 23px 14px !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
+  line-height: 18px !important;
+  font: 500 18px / 1 Montserrat, Helvetica, sans-serif;
+}
+
+.navbar-nav li:hover, .navbar-nav li:active{
+  background-color: #41ade0 !important;
+  transition: all .4s ease !important;
+    -webkit-transition: all .4s ease !important;
+    text-decoration: none !important;
+}
+
+
+.navbar-nav li a{
+  color: #fff;
+}
+
+.navbar-nav li a:hover{
+  color: #fff !important; 
+}
+
+.navbar{
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+}
+
+#data-centre-logo a:hover {
+  color: #51886f !important;
+  font: bold 32px / 1.2em Merriweather, Helvetica, sans-serif;
 }
