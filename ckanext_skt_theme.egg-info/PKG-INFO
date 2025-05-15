@@ -1,4 +1,4 @@
-Metadata-Version: 2.1
+Metadata-Version: 2.4
 Name: ckanext-skt_theme
 Version: 0.0.1
 Summary: SKT Template 2021
@@ -12,6 +12,16 @@ Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or l
 Classifier: Programming Language :: Python :: 2.7
 Description-Content-Type: text/markdown
 License-File: LICENSE
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: license
+Dynamic: license-file
+Dynamic: summary
 
 # Skeena Salmon Data Centre Theme
 
