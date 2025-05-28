@@ -1,0 +1,176 @@
+{% extends "page.html" %}
+
+{% block subtitle %}{{ h.humanize_entity_type('group', group_type, 'page title') or _('Groups') }}{% endblock %}
+
+{% block breadcrumb_content %}
+  <li class="active">{% link_for h.humanize_entity_type('group', group_type, 'breadcrumb') or _('Groups'), named_route=group_type+'.index' %}</li>
+{% endblock %}
+
+{% block body_class %}group-index{% endblock %}
+
+{% block content %}
+  {% block maintag %}<div class="main">{% endblock %}
+    {# hero #}
+    <div class="page-hero bg-dark position-relative overflow-hidden">
+      <div class="hero-background cat position-absolute w-100 h-100"></div>
+      <div class="hero-overlay position-absolute w-100 h-100"></div>
+      <div class="container position-relative py-5">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="display-4 text-white fw-bold mb-3">
+              {{ h.humanize_entity_type('group', group_type, 'page title') or _('Groups') }}
+            </h1>
+
+            <p class="lead text-white-75 mb-4 hero-description">
+              {{ _('Categories are predefined topics selected to align with the objectives and pressure indicators identified in the Skeena Knowledge Trust Information Framework.') }}
+              <br><br>
+              {{ _('Collections are used to group datasets related by spatial extent or project to create a mini library and landing page.') }}
+            </p>
+            
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb breadcrumb-dark mb-0">
+                <li class="breadcrumb-item">
+                  <a href="{{ h.url_for('home.index') }}" class="text-white">
+                    {{ _('Home') }}
+                  </a>
+                </li>
+                <li class="breadcrumb-item active text-white" aria-current="page">
+                  {{ h.humanize_entity_type('group', group_type, 'breadcrumb') or _('Groups') }}
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="content" class="container">
+      {% block main_content %}
+        {% block flash %}
+          <div class="flash-messages">
+            {% block flash_inner %}
+              {% for category, message in h.get_flashed_messages(with_categories=true) %}
+                <div class="alert alert-dismissible fade show {{ category }}">
+                  {{ h.literal(message) }}
+                </div>
+              {% endfor %}
+            {% endblock %}
+          </div>
+        {% endblock %}
+
+        {% block toolbar %}{% endblock %}
+
+        <div class="row wrapper no-nav">
+          {% block pre_primary %}{% endblock %}
+
+          {% block primary %}
+            <div class="primary col-12" role="main">
+              {% block primary_content %}
+                <article class="module">
+                  
+                  <div class="module-content p-4 content-container">
+                    <div class="mb-4">
+                      {% block groups_search_form %}
+                        {% snippet 'snippets/search_form.html', form_id='group-search-form', type=group_type, query=q, sorting_selected=sort_by_selected, count=page.item_count, placeholder=h.humanize_entity_type('group', group_type, 'search placeholder') or _('Search groups...'), show_empty=request.args, no_bottom_border=true if page.items, sorting = [(_('Name Ascending'), 'title asc'), (_('Name Descending'), 'title desc')] %}
+                      {% endblock %}
+                    </div>
+                    {% if h.check_access('group_create') and page.items %}
+                    <div class="mb-4">
+                      {% link_for h.humanize_entity_type('group', group_type, 'add link') or _('Add Group'), named_route=group_type ~ '.new', class_='btn btn-success shadow-sm', icon='plus' %}
+                    </div>
+                    {% endif %}
+
+                    {% block groups_list %}
+                      {% if page.items or request.args %}
+                        {% if page.items %}
+                          <div class="group-grid">
+                            <div class="row g-4">
+                              {% for group in page.items %}
+                              <div class="col-lg-4 col-md-6">
+                                <div class="group-card h-100">
+                                  <div class="card-body d-flex flex-column p-4">
+                                    <div class="group-image-container text-center mb-3">
+                                      <a href="{{ h.url_for('group.read', id=group.name) }}" class="text-decoration-none">
+                                        <img src="{{ group.image_display_url or h.url_for_static('/base/images/placeholder-group.png') }}" 
+                                             alt="{{ group.display_name or group.name }}" 
+                                             class="group-image img-fluid rounded-3 border border-2 border-light shadow-sm">
+                                      </a>
+                                    </div>
+                                    <h5 class="card-title text-center mb-3 fw-bold">
+                                      <a href="{{ h.url_for('group.read', id=group.name) }}" 
+                                         class="text-decoration-none text-dark hover-link">
+                                        {{ group.display_name or group.title or group.name }}
+                                      </a>
+                                    </h5>
+                                    {% if group.description %}
+                                        <p class="card-text text-muted small text-center mb-3 flex-grow-1">
+                                        {{ h.markdown_extract(h.get_translated(group, 'description'), extract_length=120) }}
+                                        </p>
+                                    {% endif %}
+                                    <div class="group-stats mt-auto">
+                                      <div class="row text-center">
+                                        <div class="col-6">
+                                          <div class="stat-item">
+                                            <div class="stat-number fw-bold text-primary">{{ group.package_count or 0 }}</div>
+                                            <div class="stat-label small text-muted">{{ _('Datasets') }}</div>
+                                          </div>
+                                        </div>
+                                        {% if group.num_followers is defined %}
+                                        <div class="col-6">
+                                          <div class="stat-item">
+                                            <div class="stat-number fw-bold text-success">{{ group.num_followers or 0 }}</div>
+                                            <div class="stat-label small text-muted">{{ _('Followers') }}</div>
+                                          </div>
+                                        </div>
+                                        {% endif %}
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                                    <div class="text-center">
+                                      <a href="{{ h.url_for('group.read', id=group.name) }}" 
+                                         class="dataset-view-btn">
+                                        {{ _('View Category or Collection') }}
+                                      </a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              {% endfor %}
+                            </div>
+                          </div>
+                        {% endif %}
+                      {% else %}
+                        <div class="empty-state text-center py-5">
+                          <div class="empty-icon mb-3">
+                            <i class="fa fa-users fa-3x text-muted"></i>
+                          </div>
+                          <h3 class="text-muted">{{ _('No Groups Found') }}</h3>
+                          <p class="text-muted mb-4">
+                            {{ h.humanize_entity_type('group', group_type, 'no any objects') or _('There are currently no groups for this site') }}.
+                          </p>
+                          {% if h.check_access('group_create') %}
+                            <a href="{{ h.url_for(group_type+'.new') }}" class="btn btn-primary btn-lg">
+                              <i class="fa fa-plus me-2"></i>
+                              {{ _('Create the first group') }}
+                            </a>
+                          {% endif %}
+                        </div>
+                      {% endif %}
+                    {% endblock %}
+                    
+                    {% block page_pagination %}
+                      <div class="pagination-wrapper mt-5">
+                        {{ page.pager(q=q or '', sort=sort_by_selected or '') }}
+                      </div>
+                    {% endblock %}
+                  </div>
+                </article>
+              {% endblock %}
+            </div>
+          {% endblock %}
+        </div>
+      {% endblock %}
+    </div>
+  </div>
+{% endblock %}

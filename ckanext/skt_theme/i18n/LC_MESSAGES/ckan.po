@@ -1,0 +1,335 @@
+# English translations for ckan.
+# Copyright (C) 2020 ORGANIZATION
+# This file is distributed under the same license as the ckan project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2020.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ckan 2.9.0b0\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2020-07-21 11:43+0200\n"
+"PO-Revision-Date: 2021-12-06 22:08+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ckanext/example_theme_docs/v10_custom_snippet/templates/snippets/example_theme_most_popular_groups.html:20
+#: ckanext/example_theme_docs/v11_HTML_and_CSS/templates/snippets/example_theme_most_popular_groups.html:19
+msgid "This group has no description"
+msgstr "This category or collection has no description"
+
+#: ckanext/stats/templates/ckanext/stats/index.html:37
+#: ckanext/stats/templates/ckanext/stats/index.html:109
+msgid "Largest Groups"
+msgstr "Largest Category or Collection"
+
+#: ckan/logic/converters.py:174 ckan/logic/validators.py:268
+#: ckanext/stats/templates/ckanext/stats/index.html:42
+msgid "Group"
+msgstr "Categories and Collections"
+
+#: ckanext/stats/templates/ckanext/stats/index.html:56
+msgid "No groups"
+msgstr "No categories or collections"
+
+#: ckan/controllers/feed.py:236 ckan/controllers/group.py:129
+#: ckan/controllers/group.py:231 ckan/controllers/group.py:406
+#: ckan/controllers/group.py:516 ckan/controllers/group.py:549
+#: ckan/controllers/group.py:579 ckan/controllers/group.py:590
+#: ckan/controllers/group.py:644 ckan/controllers/group.py:670
+#: ckan/controllers/group.py:726 ckan/controllers/group.py:758
+#: ckan/controllers/group.py:791 ckan/controllers/group.py:848
+#: ckan/controllers/group.py:947 ckan/controllers/package.py:1267
+#: ckan/controllers/package.py:1282 ckan/logic/action/create.py:1468
+#: ckan/views/dataset.py:1027 ckan/views/dataset.py:1044 ckan/views/feed.py:206
+#: ckan/views/group.py:396 ckan/views/group.py:427 ckan/views/group.py:469
+#: ckan/views/group.py:536 ckan/views/group.py:590 ckan/views/group.py:720
+#: ckan/views/group.py:760 ckan/views/group.py:857 ckan/views/group.py:929
+#: ckan/views/group.py:950 ckan/views/group.py:969 ckan/views/group.py:1029
+#: ckan/views/group.py:1099
+msgid "Group not found"
+msgstr "Category or Collection not found"
+
+#: ckan/controllers/group.py:131 ckan/controllers/group.py:593
+msgid "Incorrect group type"
+msgstr "Incorrect category or collection type"
+
+#: ckan/controllers/group.py:318 ckan/controllers/home.py:62
+#: ckan/controllers/package.py:257 ckan/lib/helpers.py:1250
+#: ckan/templates/group/base_form_page.html:4 ckan/templates/group/edit.html:4
+#: ckan/templates/group/edit_base.html:3 ckan/templates/group/edit_base.html:8
+#: ckan/templates/group/index.html:3 ckan/templates/group/index.html:6
+#: ckan/templates/group/index.html:18 ckan/templates/group/members.html:3
+#: ckan/templates/group/read_base.html:3 ckan/templates/group/read_base.html:6
+#: ckan/templates/header.html:91 ckan/templates/package/group_list.html:5
+#: ckan/templates/package/read_base.html:22
+#: ckan/tests/config/test_middleware.py:120 ckan/views/dataset.py:285
+#: ckan/views/group.py:305 ckan/views/home.py:50
+msgid "Groups"
+msgstr "Categories and Collections"
+
+#: ckan/controllers/group.py:473 ckan/views/group.py:838
+#: ckan/views/group.py:927
+msgid "Unauthorized to create a group"
+msgstr "Unauthorized to create a category or collection"
+
+#: ckan/controllers/group.py:627 ckan/controllers/group.py:642
+#: ckan/views/group.py:1010 ckan/views/group.py:1027
+#, python-format
+msgid "Unauthorized to delete group %s"
+msgstr "Unauthorized to delete category or collection %s"
+
+#: ckan/controllers/group.py:635 ckan/views/group.py:1021
+msgid "Group has been deleted."
+msgstr "Category or Collection has been deleted"
+
+#: ckan/controllers/group.py:682 ckan/views/group.py:1071
+#, python-format
+msgid "Unauthorized to create group %s members"
+msgstr "Unauthorized to create collection %s members"
+
+#: ckan/controllers/group.py:724 ckan/views/group.py:1097
+#, python-format
+msgid "Unauthorized to add member to group %s"
+msgstr "Unauthorized to add member to collection %s"
+
+#: ckan/controllers/group.py:743 ckan/controllers/group.py:756
+#: ckan/views/group.py:567 ckan/views/group.py:588
+#, python-format
+msgid "Unauthorized to delete group %s members"
+msgstr "Unauthorized to delete collection %s members"
+
+#: ckan/controllers/group.py:750 ckan/views/group.py:576
+msgid "Group member has been deleted."
+msgstr "Collection member has been deleted"
+
+#: ckan/controllers/group.py:798
+msgid "CKAN Group Revision History"
+msgstr "CKAN Category or Collection Revision History"
+
+#: ckan/controllers/group.py:802
+msgid "Recent changes to CKAN Group: "
+msgstr "Recent changes to CKAN Category or Collection"
+
+#: ckan/lib/mailer.py:151 ckan/templates/home/snippets/stats.html:23
+msgid "group"
+msgstr "category and collection"
+
+#: ckan/logic/validators.py:278
+msgid "That group name or ID does not exist."
+msgstr "That collection name or ID does not exist."
+
+#: ckan/logic/validators.py:434
+msgid "Group name already exists in database"
+msgstr "Category or Collection name already exists in database"
+
+#: ckan/logic/action/create.py:869
+msgid "Trying to create an organization as a group"
+msgstr "Trying to create an organization as a category or collection"
+
+#: ckan/logic/auth/create.py:31 ckan/logic/auth/update.py:56
+#, python-format
+msgid "User %s not authorized to edit these groups"
+msgstr "User %s not authorized to edit these categories or collections"
+
+#: ckan/logic/auth/create.py:119
+#, python-format
+msgid "User %s not authorized to create groups"
+msgstr "User %s not authorized to create categories or collections"
+
+#: ckan/logic/auth/create.py:252 ckan/logic/auth/update.py:131
+#, python-format
+msgid "User %s not authorized to edit group %s"
+msgstr "User %s not authorized to edit category or collection %s"
+
+#: ckan/logic/auth/delete.py:82
+#, python-format
+msgid "User %s not authorized to delete groups"
+msgstr "User %s not authorized to delete categories or collections"
+
+#: ckan/logic/auth/delete.py:86
+#, python-format
+msgid "User %s not authorized to delete group %s"
+msgstr "User %s not authorized to delete category or collection %s"
+
+#: ckan/logic/auth/get.py:177
+#, python-format
+msgid "User %s not authorized to read group %s"
+msgstr "User %s not authorized to read category or collection %s"
+
+#: ckan/logic/auth/update.py:161
+#, python-format
+msgid "User %s not authorized to change state of group %s"
+msgstr "User %s not authorized to change state of category or collection %s"
+
+#: ckan/logic/auth/update.py:178
+#, python-format
+msgid "User %s not authorized to edit permissions of group %s"
+msgstr "User %s not authorized to edit permissions of category or collection %s"
+
+#: ckan/templates/admin/trash.html:31
+msgid "Purge deleted datasets, organizations or groups forever and irreversibly."
+msgstr "Purge deleted datasets, organizations, categories or collections forever and irreversibly."
+
+#: ckan/templates/group/base_form_page.html:5
+msgid "Add a Group"
+msgstr "Add a Category or Collection"
+
+#: ckan/templates/group/base_form_page.html:10
+msgid "Group Form"
+msgstr "Category and Collection form"
+
+#: ckan/templates/group/confirm_delete.html:11
+msgid "Are you sure you want to delete group - {name}?"
+msgstr "Are you sure you want to delete category or collection - {name}?"
+
+#: ckan/templates/group/edit.html:12
+msgid "Edit Group"
+msgstr "Edit Category or Collection"
+
+#: ckan/templates/group/index.html:13
+#: ckan/templates/user/dashboard_groups.html:7
+msgid "Add Group"
+msgstr "Add Category or Collection"
+
+#: ckan/templates/group/index.html:20
+msgid "Search groups..."
+msgstr "Search categories and collections..."
+
+#: ckan/templates/group/index.html:29
+msgid "There are currently no groups for this site"
+msgstr "There are currently no categories or collections for this site"
+
+#: ckan/templates/group/member_new.html:93
+msgid ""
+"<p><strong>Admin:</strong> Can edit group information, as well as manage "
+"organization members.</p> <p><strong>Member:</strong> Can add/remove "
+"datasets from groups</p>"
+msgstr ""
+"<p><strong>Admin:</strong> Can edit category or collection information, as well as manage "                                  
+"organization members.</p> <p><strong>Member:</strong> Can add/remove "                                      
+"datasets from categories or collections</p>" 
+
+#: ckan/templates/group/new.html:3 ckan/templates/group/new.html:5
+#: ckan/templates/group/new.html:7
+msgid "Create a Group"
+msgstr "Create a Category or Collection"
+
+#: ckan/templates/group/new_group_form.html:17
+msgid "Update Group"
+msgstr "Update Category or Collection"
+
+#: ckan/templates/group/new_group_form.html:19
+msgid "Create Group"
+msgstr "Create Category or Collection"
+
+#: ckan/templates/group/snippets/feeds.html:2
+msgid "Datasets in group: {group}"
+msgstr "Datasets in category or collection: {group}"
+
+#: ckan/templates/group/snippets/group_form.html:10
+msgid "My Group"
+msgstr "My Category or Collection"
+
+#: ckan/templates/group/snippets/group_form.html:20
+msgid "A little information about my group..."
+msgstr "A little information about my category or collection..."
+
+#: ckan/templates/group/snippets/group_form.html:38
+msgid "Are you sure you want to delete this Group?"
+msgstr "Are you sure you want to delete this Category or Collection?"
+
+#: ckan/templates/group/snippets/group_form.html:41
+msgid "Save Group"
+msgstr "Save Category or Collection"
+
+#: ckan/templates/group/snippets/group_item.html:43
+msgid "Remove dataset from this group"
+msgstr "Remove dataset from this category or collection"
+
+#: ckan/templates/group/snippets/helper.html:4
+msgid "What are Groups?"
+msgstr "What are Categories and Collections?"
+
+#: ckan/templates/group/snippets/helper.html:8
+msgid ""
+"You can use CKAN Groups to create and manage collections of datasets. "
+"This could be to catalogue datasets for a particular project or team, or "
+"on a particular theme, or as a very simple way to help people find and "
+"search your own published datasets."
+msgstr ""
+"Categories are predefined topics selected to align with the objectives " 
+"and pressure indicators identified in the Skeena Knowledge Trust "
+"Information Framework. Collections are used to group datasets related "
+"by spatial extent or project to create a mini library and landing page."
+
+#: ckan/templates/home/snippets/stats.html:23
+msgid "groups"
+msgstr "categories and collections"
+
+#: ckan/templates/organization/snippets/helper.html:8
+msgid ""
+"CKAN Organizations are used to create, manage and publish collections of "
+"datasets. Users can have different roles within an Organization, "
+"depending on their level of authorisation to create, edit and publish."
+msgstr ""
+"Each dataset is associated with a single organization, which in most cases "
+"is the data owner or primary project sponsor. Large organizations such as "
+"the BC provincial government are broken up into individual departments or ministries."
+
+#: ckan/templates/package/group_list.html:14
+msgid "Associate this group with this dataset"
+msgstr "Associate this category or collection with this dataset"
+
+#: ckan/templates/package/group_list.html:14
+msgid "Add to group"
+msgstr "Add to category or collection"
+
+#: ckan/templates/package/group_list.html:23
+msgid "There are no groups associated with this dataset"
+msgstr "There are no categories or collections associated with this dataset"
+
+#: ckan/templates/snippets/search_result_text.html:21
+msgid "{number} group found for \"{query}\""
+msgid_plural "{number} groups found for \"{query}\""
+msgstr[0] "{number} category or group found for \"{query}\""
+msgstr[1] "{number} categories or collections found for \"{query}\""
+
+#: ckan/templates/snippets/search_result_text.html:22
+msgid "No groups found for \"{query}\""
+msgstr "No categories or collections found for \"{query}\""
+
+#: ckan/templates/snippets/search_result_text.html:23
+msgid "{number} group found"
+msgid_plural "{number} groups found"
+msgstr[0] "{number} category or collection found"
+msgstr[1] "{number} categories or collections found"
+
+#: ckan/templates/snippets/search_result_text.html:24
+msgid "No groups found"
+msgstr "No categories or collections found"
+
+#: ckan/templates/snippets/activities/changed_group.html:4
+msgid "{actor} updated the group {group}"
+msgstr "{actor} updated the category or collection {group}"
+
+#: ckan/templates/snippets/activities/deleted_group.html:4
+msgid "{actor} deleted the group {group}"
+msgstr "{actor} deleted the category or collection {group}"
+
+#: ckan/templates/snippets/activities/new_group.html:4
+msgid "{actor} created the group {group}"
+msgstr "{actor} created the category or collection {group}"
+
+#: ckan/templates/user/dashboard_groups.html:20
+msgid "You are not a member of any groups."
+msgstr "You are not a member of any categories or collections"
+
+#: ckan/templates/user/new.html:28
+msgid "Create datasets, groups and other exciting things"
+msgstr "Create datasets, categories, collections and other exciting things"

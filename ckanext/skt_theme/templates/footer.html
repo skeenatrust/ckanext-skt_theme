@@ -1,69 +1,71 @@
-<footer id="footer">
-    <div class="footer-top">
-      <div class="container-fluid">
-        {% block footer_content %}  
-        <div class="row footer-row">
-
-          <div class="col-lg-3 col-md-6 footer-info">
-            <p class="footer-logo">Skeena Salmon <br> Data Centre</p>
-            <p class="details">The Skeena Salmon Data Centre is a comprehensive, central repository for credible information related to wild Pacific salmonids in the Skeena watershed.</p>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            {% block footer_nav %}  
-            <h4>Quick Links</h4>
-            <ul>
-              {% block footer_links %}  
-                <li><a href="{{ h.url_for('home.about') }}"><i class="fa fa-chevron-right"></i>About Us</a></li>
-              {% endblock %}  
-              <li><a href="https://www.manula.com/manuals/skeena-knowledge-trust/skeena-knowledge-trust/1/en/topic/skeena-salmon-data-centre"><i class="fa fa-chevron-right"></i>Help Page</a></li>
-              <li><a href="https://www.manula.com/manuals/skeena-knowledge-trust/skeena-knowledge-trust/1/en/topic/terms-of-use"><i class="fa fa-chevron-right"></i>Terms and Conditions</a></li>
-              <li><a href="https://www.manula.com/manuals/skeena-knowledge-trust/skeena-knowledge-trust/1/en/topic/ssdc-faqs"><i class="fa fa-chevron-right"></i>FAQ </a></li>
-            </ul>
-            {% endblock %}
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
-            {% block footer_links_ckan %}
-            {% set api_url = 'http://docs.ckan.org/en/{0}/api/'.format(g.ckan_doc_version) %}
-            <h4>Powered by</h4>
-            <ul>
-                <li><a href="{{ api_url }}"><i class="fa fa-chevron-right"></i>CKAN API</a></li>
-                <li><a href="http://www.ckan.org/"><i class="fa fa-chevron-right"></i>CKAN Association</a></li>
-              </ul>
-            {% endblock %}  
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-contact">
-            <h4>Contact Us</h4>
-            <p>
-              Unit 102, 3423 Fulton Avenue <br>
-              Smithers, BC. V0J 2N0<br>
-              <strong>Phone:</strong> +1 250 847 5665<br>
-              <strong>Email:</strong> info@skeenatrust.ca<br>
-            </p><br>
-
-            <div class="social-links">
-              <a href="https://twitter.com/skeenatrust" class="twitter"><i class="fa fa-twitter"></i></a>
-              <a href="https://www.facebook.com/skeenatrust" class="facebook"><i class="fa fa-facebook-f"></i></a>
-              <a href="https://www.youtube.com/channel/UCP-y1SpNvm3rztS4zN6LYLA" class="youtube"><i class="fa fa-youtube"></i></a>
-            </div>
-          </div>
-
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section org-info">
+        <div class="org-header">
+          <h2 class="footer-heading">Skeena Salmon<br>Data Centre</h2>
         </div>
-        {% endblock %}  
+        <div class="org-provider-wrapper">
+          <span class="icon-circle"><i class="fa-solid fa-database"></i></span>
+          <div class="info-text">
+            <p class="info-title">Developed by:</p>
+            <a href="https://www.skeenatrust.ca" class="info-detail" target="_blank" rel="noopener noreferrer">Skeena Knowledge Trust</a>
+          </div>
+        </div>
+        <div class="org-tagline-wrapper">
+          <span class="icon-circle"><i class="fa-solid fa-fish"></i></span>
+          <div class="info-text">
+            <p class="info-title">Data Stewards for</p>
+            <p class="info-detail">Skeena Salmon</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="footer-section quick-links">
+        <h2 class="footer-heading">SITE LINKS</h2>
+        <ul>
+          <li><a href="/about">About Us</a></li>
+          <li><a href="https://www.manula.com/manuals/skeena-knowledge-trust/skeena-knowledge-trust/1/en/topic/skeena-salmon-data-centre" target="_blank" rel="noopener noreferrer">Help Page</a></li>
+          <li><a href="https://www.manula.com/manuals/skeena-knowledge-trust/skeena-knowledge-trust/1/en/topic/terms-of-use" target="_blank" rel="noopener noreferrer">Terms of Use</a></li>
+          <li><a href="https://www.manula.com/manuals/skeena-knowledge-trust/skeena-knowledge-trust/1/en/topic/ssdc-faqs" target="_blank" rel="noopener noreferrer">FAQ</a></li>
+          <li><a href="https://www.manula.com/manuals/skeena-knowledge-trust/skeena-knowledge-trust/1/en/topic/ssdc-faqs">For Contributors</a></li>
+          <li><a href="https://docs.ckan.org/en/latest/api/">CKAN API</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section contact">
+        <h2 class="footer-heading">CONTACT US</h2>
+        <address>
+          Unit 102, 3423 Fulton Avenue<br>
+          Smithers, BC. V0J 2N0
+        </address>
+        <p><strong>Phone:</strong> <a href="tel:+12508475665">+1 250 847 5665</a></p>
+        <p><strong>Email:</strong> <a href="mailto:info@skeenatrust.cag">info@skeenatrust.ca</a></p>
       </div>
     </div>
-
+    <div class="footer-separator"></div>
+  </div>
+  
+  <div class="copyright-bar">
     <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong>Skeena Knowledge Trust</strong>. All Rights Reserved
+      <div class="copyright-container">
+        <p>&copy; 2025 Skeena Salmon Data Centre | Skeena Knwowledge Trust. All Rights Reserved.</p>
+        <div class="social-icons">
+          <a href="https://www.facebook.com/skeenatrust" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="https://x.com/skeenatrust" class="social-icon" aria-label="X" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i></a>
+          <a href="https://www.instagram.com/skeenatrust/" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.youtube.com/@skeenaknowledgetrust8934" class="social-icon" aria-label="YouTube" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
+        </div>
       </div>
     </div>
+  </div>
+</footer>
 
-    {% block footer_debug %}
-    {% if g.debug %}
-      {% include 'snippets/debug.html' %}
-    {% endif %}
-  {% endblock %}
-  </footer>
+<!-- update yr automatically -->
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.current-year').forEach(function(el) {
+      el.textContent = new Date().getFullYear();
+    });
+  });
+</script>

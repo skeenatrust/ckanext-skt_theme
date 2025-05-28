@@ -1,13 +1,46 @@
-{% set placeholder = _('Search for data: e.g. chinook') %}
+{% set tags = h.get_facet_items_dict('tags', search_facets, limit=3) %}
+{% set placeholder = _('Search datasets, reports & resources...') %}
+{% set dataset_type = h.default_package_type() %}
 
-<div class="module module-search">
-  <form class="module-content search-form" action="{% url_for 'dataset.search' %}" method="get">
-    <div class="search-input control-group search-giant">
-      <input type="text" class="search" name="q" value="" autocomplete="off" placeholder="{% block search_placeholder %}{{ placeholder }}{% endblock %}" />
-      <button type="submit">
+<div class="enhanced-search-container">
+  <div class="search-header">
+    <h3>Explore Datasets</h3>
+    <p>Search our collection of datasets, reports, and other resources</p>
+  </div>
+  
+  <form class="enhanced-search-form" method="get" action="{% url_for dataset_type ~ '.search' %}">
+    <div class="search-input-group">
+      <input 
+        aria-label="{{ _('Search datasets') }}" 
+        id="field-hero-search" 
+        type="text" 
+        name="q" 
+        value="" 
+        autocomplete="off" 
+        placeholder="{{ placeholder }}" 
+      />
+      <button type="submit" aria-label="{{ _('Search') }}">
         <i class="fa fa-search"></i>
-        <span>{{ _('Search') }}</span>
       </button>
     </div>
+    
+    <div class="search-help">
+      <a href="https://www.manula.com/manuals/skeena-knowledge-trust/skeena-knowledge-trust/1/en/topic/skeena-salmon-data-centre">Need help finding something?</a>
+        <span class="separator">•</span>
+      <a href="/user/login" class="contributor-link">For Contributors</a>
+    </div>
   </form>
+  
+  {% if tags %}
+  <div class="popular-tags">
+    <span class="tags-label">Popular tags:</span>
+    <div class="tags-list">
+      {% for tag in tags %}
+        <a class="tag" href="{% url_for 'dataset.search', tags=tag.name %}" title="{{ tag.display_name }}">
+          {{ tag.display_name|truncate(22) }}
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
 </div>

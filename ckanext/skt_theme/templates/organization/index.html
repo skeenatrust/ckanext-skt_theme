@@ -1,0 +1,179 @@
+{% extends "page.html" %}
+
+{% block subtitle %}{{ h.humanize_entity_type('organization', group_type, 'page title') or _('Organizations') }}{% endblock %}
+
+{% block breadcrumb_content %}
+  <li class="active">{% link_for h.humanize_entity_type('organization', group_type, 'breadcrumb') or _('Organizations'), named_route=group_type+'.index' %}</li>
+{% endblock %}
+
+{% block body_class %}organization-index{% endblock %}
+{% block content %}
+  {% block maintag %}<div class="main">{% endblock %}
+    <div class="page-hero bg-dark position-relative overflow-hidden">
+      <div class="hero-background org position-absolute w-100 h-100"></div>
+      <div class="hero-overlay position-absolute w-100 h-100"></div>
+      <div class="container position-relative py-5">
+        <div class="row">
+          <div class="col-12">
+            <h1 class="display-4 text-white fw-bold mb-3">
+              {{ h.humanize_entity_type('organization', group_type, 'page title') or _('Organizations') }}
+            </h1>
+            <p class="lead text-white-75 mb-4 hero-description">
+              {{ _('Each dataset is associated with a single organization, which in most cases is the data owner or primary project sponsor. Large organizations such as the BC provincial government are broken up into individual departments or ministries.') }}
+            </p>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb breadcrumb-dark mb-0">
+                <li class="breadcrumb-item">
+                  <a href="{{ h.url_for('home.index') }}" class="text-white">
+                    </i>{{ _('Home') }}
+                  </a>
+                </li>
+                <li class="breadcrumb-item active text-white" aria-current="page">
+                  {{ h.humanize_entity_type('organization', group_type, 'breadcrumb') or _('Organizations') }}
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {# main content #}
+    <div id="content" class="container">
+      {% block main_content %}
+        {% block flash %}
+          <div class="flash-messages">
+            {% block flash_inner %}
+              {% for category, message in h.get_flashed_messages(with_categories=true) %}
+                <div class="alert alert-dismissible fade show {{ category }}">
+                  {{ h.literal(message) }}
+                </div>
+              {% endfor %}
+            {% endblock %}
+          </div>
+        {% endblock %}
+
+        {# hide default toolbar #}
+        {% block toolbar %}{% endblock %}
+
+        <div class="row wrapper{% block wrapper_class %}{% endblock %} no-nav">
+          {% block pre_primary %}{% endblock %}
+
+          {% block primary %}
+            <div class="primary col-12" role="main">
+              {% block primary_content %}
+                <article class="module">
+                  <div class="module-content p-4 content-container">
+
+                    {# search #}
+                    <div class="mb-4">
+                      {% block organizations_search_form %}
+                        {% snippet 'snippets/search_form.html', form_id='organization-search-form', type=group_type, query=q, sorting_selected=sort_by_selected, count=page.item_count, placeholder=h.humanize_entity_type('organization', group_type, 'search placeholder') or _('Search organizations...'), show_empty=request.args, no_bottom_border=true if page.items, sorting = [(_('Name Ascending'), 'title asc'), (_('Name Descending'), 'title desc')] %}
+                      {% endblock %}
+                    </div>
+                    
+                    {# new org btn #}
+                    {% if h.check_access('organization_create') %}
+                    <div class="mb-4">
+                      {% link_for h.humanize_entity_type('organization', group_type, 'add link') or _('Add Organization'), named_route=group_type ~ '.new', class_='btn btn-success shadow-sm', icon='plus' %}
+                    </div>
+                    {% endif %}
+
+                    {% block organizations_list %}
+                      {% if page.items or request.args %}
+                        {% if page.items %}
+                          <div class="organization-grid">
+                            <div class="row g-4">
+                              {% for organization in page.items %}
+                              <div class="col-lg-4 col-md-6">
+                                <div class="organization-card h-100">
+                                  <div class="card-body d-flex flex-column p-4">
+                                    <div class="organization-image-container text-center mb-3">
+                                      <a href="{{ h.url_for('organization.read', id=organization.name) }}" class="text-decoration-none">
+                                        <img src="{{ organization.image_display_url or h.url_for_static('/base/images/placeholder-organization.png') }}" 
+                                             alt="{{ organization.display_name or organization.name }}" 
+                                             class="group-image img-fluid rounded-3 border border-2 border-light shadow-sm">
+                                      </a>
+                                    </div>
+
+                                    <h5 class="card-title text-center mb-3 fw-bold">
+                                      <a href="{{ h.url_for('organization.read', id=organization.name) }}" 
+                                         class="text-decoration-none text-dark hover-link">
+                                        {{ organization.display_name or organization.title or organization.name }}
+                                      </a>
+                                    </h5>
+
+                                    {% if organization.description %}
+                                      <p class="card-text text-muted small text-center mb-3 flex-grow-1">
+                                        {{ h.markdown_extract(h.get_translated(organization, 'description'), extract_length=120) }}
+                                      </p>
+                                    {% endif %}
+                                    
+                                    <div class="organization-stats mt-auto">
+                                      <div class="row text-center">
+                                        <div class="col-6">
+                                          <div class="stat-item">
+                                            <div class="stat-number fw-bold text-primary">{{ organization.package_count or 0 }}</div>
+                                            <div class="stat-label small text-muted">{{ _('Datasets') }}</div>
+                                          </div>
+                                        </div>
+                                        {% if organization.num_followers is defined %}
+                                        <div class="col-6">
+                                          <div class="stat-item">
+                                            <div class="stat-number fw-bold text-success">{{ organization.num_followers or 0 }}</div>
+                                            <div class="stat-label small text-muted">{{ _('Followers') }}</div>
+                                          </div>
+                                        </div>
+                                        {% endif %}
+                                      </div>
+                                    </div>
+                                  </div>
+                                  
+                                  <div class="card-footer bg-transparent border-0 pt-0 pb-3">
+                                    <div class="text-center">
+                                      <a href="{{ h.url_for('organization.read', id=organization.name) }}" 
+                                         class="dataset-view-btn">
+                                        {{ _('View Organization') }}
+                                      </a>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              {% endfor %}
+                            </div>
+                          </div>
+                        {% endif %}
+                      {% else %}
+                        <div class="empty-state text-center py-5">
+                          <div class="empty-icon mb-3">
+                            <i class="fa fa-building fa-3x text-muted"></i>
+                          </div>
+                          <h3 class="text-muted">{{ _('No Organizations Found') }}</h3>
+                          <p class="text-muted mb-4">
+                            {{ _('There are currently no organizations for this site') }}.
+                          </p>
+                          {% if h.check_access('organization_create') %}
+                            <a href="{{ h.url_for(group_type+'.new') }}" class="btn btn-primary btn-lg">
+                              <i class="fa fa-plus me-2"></i>
+                              {{ _('Create the first organization') }}
+                            </a>
+                          {% endif %}
+                        </div>
+                      {% endif %}
+                    {% endblock %}
+                    
+                    {% block page_pagination %}
+                      <div class="pagination-wrapper mt-5">
+                        {{ page.pager(q=q or '', sort=sort_by_selected or '') }}
+                      </div>
+                    {% endblock %}
+                  </div>
+                </article>
+              {% endblock %}
+            </div>
+          {% endblock %}
+        </div>
+      {% endblock %}
+    </div>
+  </div>
+{% endblock %}

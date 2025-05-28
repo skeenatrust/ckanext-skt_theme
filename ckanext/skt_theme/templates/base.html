@@ -2,16 +2,24 @@
 
 {% block styles %}
   {{ super() }}
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="{{ h.url_for_static('style.css') }}" />
   
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZP85CSYE3X"></script>
+  <!-- FontAwesome via CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-regular-rounded/css/uicons-regular-rounded.css'>
+    <link rel='stylesheet' href='https://cdn-uicons.flaticon.com/uicons-solid-rounded/css/uicons-solid-rounded.css'>
+    
+  
+<!-- Google tag (gtag.js) -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZP85CSYE3X"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
     gtag('config', 'G-ZP85CSYE3X');
-  </script>
+  </script> -->
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="{{ h.url_for_static('script.js') }}"></script>
 {% endblock %}

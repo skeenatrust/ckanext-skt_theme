@@ -1,8 +1,0 @@
-{# Customizations for the main dataset results page #}
-
-{% ckan_extends %}
-
-{% block package_search_results_list %}
-    {{ h.snippet('snippets/package_list.html', packages=c.page.items,
-                 truncate=260) }}
-{% endblock %}

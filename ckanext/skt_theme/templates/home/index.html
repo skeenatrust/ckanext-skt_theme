@@ -1,124 +1,317 @@
-{% set active_page = "index" %}
 {% ckan_extends %}
 
-{% block primary_content %}
-    <section id="section-banner">
-      <div id="banner">
-        <video src="css/gfx/hero_1.mp4" muted loop autoplay></video>
-        <div class="overlay"></div>
-  
-        <div class="top-logo">
-          <a href="/">Skeena Salmon <br> Data Centre</a>
-          <img id="by-index" src="css/gfx/by-big.png" width="22px" alt="by">
-          <a href="https://www.skeenatrust.ca/"><img id="logo-index" src="css/gfx/skt-logo.png" width="130px" alt="Skeena Knowledge Trust"></a>
-        </div>
-  
-        <div class="main-heading">
-          <p>Welcome to the <br> Skeena Salmon Data Centre</p>
-        </div>
-  
-        <div class="search-index">
-          {% snippet 'home/snippets/search.html' %}
-        </div>
-  
-        <div class="index-navi">
-          <ul>
-            <li><a href="/group">View Categories and Collections</a></li>
-            <li><a href="/dataset">View Datasets</a></li>
-            <li><a href="/user/login">Already have an account? Login</a></li>
-          </ul>
-        </div>
-      </div>
-    </section>
+{% block subtitle %}{{ _("Welcome") }}{% endblock %}
 
-    <section id="section-categories">
-      <ul>
-        <li><a id="cat-habitat" href="/group/habitat"><p>Habitat</p></a></li>
-        <li><a id="cat-population" href="/group/population"><p>Population</p></a></li>
-        <li><a id="cat-climate" href="/group/climate-change"><p>Climate Change</p></a></li>
-        <li><a id="cat-water" href="/group/water"><p>Water</p></a></li>
-        <li><a id="cat-landuse" href="/group/land-use-and-development"><p>Land Use and Development</p></a></li>
-        <li><a id="cat-gis" href="group/gis-data"><p>GIS Data</p></a></li>
-        <li><a id="cat-vegetation" href="/group/ecology"><p>Vegetation/Ecology</p></a></li>
-        <li><a id="cat-infrastructure" href="/group/infrastructure"><p>Infrastructure</p></a></li>
-      </ul>
-    </section>
+{% block maintag %}{% endblock %}
+{% block toolbar %}{% endblock %}
 
-    <section id="section-about">
+{% block content %}
+<div class="homepage no-gap">
+  <div id="content" class="container">
+    {{ self.flash() }}
+  </div>
+  
+  {% block primary_content %}
+  <div role="main" class="no-gap">
+    <section class="hero-section parallax-hero no-gap">
+      <div class="parallax-background"></div>
+      <div class="hero-overlay"></div>
+      
       <div class="container">
-        <div class="row">
-          <div class="col-md-6 col1">
-            <img src="css/gfx/salmon.jpeg" alt="Skeena Salmon Data Centre">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1>Accessible Data for Informed Salmon Stewardship</h1>
+            <p>Explore datasets and reports that help communities, researchers, and governments make well-informed choices for the future of the Skeena.</p>
+            
+            <div class="hero-actions">
+              <a href="{{ h.url_for('dataset.search') }}" class="cta-button primary-cta">Explore All Datasets</a>
+            </div>
           </div>
-          <div class="col-md-6 col2">
-            <p>
-              The Skeena Salmon Data Centre is a comprehensive, central repository for credible information related to wild Pacific salmonids in the Skeena watershed, including data on salmon populations, habitat, water quality, hydrology and climatology.
-            </p><br><br>
-            <a class="btn-blue col2-btn" href="/about">Learn More About the Skeena Salmon Data Centre</a>
+          
+          <div class="hero-search">
+            {% block search %}
+              {% include "home/snippets/search.html" %}
+            {% endblock %}
           </div>
         </div>
       </div>
     </section>
 
-    <section id="section-stats">
-      <div class="overlay-stats"></div>
+    <section class="category-section">
+            <h2>Browse by Category</h2>
+            <p>Use the navigation below to explore datasets by category.:</p>
+            <div class="categories">
+                <a href="/group/habitat" class="category-item">
+                    <div class="icon-container">
+                        <img src="/images/habitat.png" alt="Habitat" class="category-icon icon-default">
+                        <img src="/images/habitat_h.png" alt="Habitat" class="category-icon icon-hover">
+                    </div>
+                    <span>Habitat</span>
+                </a>
+                <a href="/group/poppulation" class="category-item">
+                    <div class="icon-container">
+                        <img src="/images/population.png" alt="Population" class="category-icon icon-default">
+                        <img src="/images/population_h.png" alt="Population" class="category-icon icon-hover">
+                    </div>
+                    <span>Population</span>
+                </a>
+                <a href="/group/climate-change" class="category-item">
+                    <div class="icon-container">
+                        <img src="/images/climate.png" alt="Climate Change" class="category-icon icon-default">
+                        <img src="/images/climate_h.png" alt="Climate Change" class="category-icon icon-hover">
+                    </div>
+                    <span>Climate Change</span>
+                </a>
+                <a href="/group/water" class="category-item">
+                    <div class="icon-container">
+                        <img src="/images/water.png" alt="Water" class="category-icon icon-default">
+                        <img src="/images/water_h.png" alt="Water" class="category-icon icon-hover">
+                    </div>
+                    <span>Water</span>
+                </a>
+                <a href="/group/land-use-and-development" class="category-item">
+                    <div class="icon-container">
+                        <img src="/images/landuse.png" alt="Land Use and Development" class="category-icon icon-default">
+                        <img src="/images/landuse_h.png" alt="Land Use and Development" class="category-icon icon-hover">
+                    </div>
+                    <span>Land Use and Development</span>
+                </a>
+                <a href="/group/gis" class="category-item">
+                    <div class="icon-container">
+                        <img src="/images/gis.png" alt="GIS Data" class="category-icon icon-default">
+                        <img src="/images/gis_h.png" alt="GIS Data" class="category-icon icon-hover">
+                    </div>
+                    <span>GIS Data</span>
+                </a>
+                <a href="/group/vegetation" class="category-item">
+                    <div class="icon-container">
+                        <img src="/images/vegetation.png" alt="Vegetation/Ecology" class="category-icon icon-default">
+                        <img src="/images/vegetation_h.png" alt="Vegetation/Ecology" class="category-icon icon-hover">
+                    </div>
+                    <span>Vegetation/Ecology</span>
+                </a>
+                <a href="/group/infrastructure" class="category-item">
+                    <div class="icon-container">
+                        <img src="/images/infrastructure.png" alt="Infrastructure" class="category-icon icon-default">
+                        <img src="/images/infrastructure_h.png" alt="Infrastructure" class="category-icon icon-hover">
+                    </div>
+                    <span>Infrastructure</span>
+                </a>
+            </div>
+        </section>
 
-      <div class="container">
-          <div class="row stats-content">
-            <div class="col-lg-4 col-6 text-center">
-              <!-- <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span> -->
-              <span class="dark-blue">1100+</span>
-              <p>Datasets</p>
+        <section class="about-section">
+        <div class="about-container">
+            <div class="images-container">
+                <img src="/images/field.jpg" alt="Group Field Work" class="main-image">
+                <img src="/images/group.jpg" alt="Field Work" class="secondary-image">
             </div>
-  
-            <div class="col-lg-4 col-6 text-center">
-              <!-- <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span> -->
-              <span class="dark-blue">3400+</span>
-              <p>Resources</p>
-            </div>
-  
-            <div class="col-lg-4 col-6 text-center">
-              <!-- <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span> -->
-              <span class="dark-blue">170+</span>
-              <p>Organizations</p>
-            </div>
-          </div>
-      </div>
-    </section>
+            <div class="content-container">
 
-    <section id="section-links">
-      <h1>Useful Links</h1>
-      <hr>
-        <div class="row links">
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="card">
-              <img class="card-img-top" src="css/gfx/pan-maps.png" alt="Skeena Maps Portal">
-              <div class="card-body">
-                <p class="card-text">Are you looking for some spatial data?</p>
-                <a class="btn-blue" href="https://maps.skeenasalmon.info/">View Skeena Maps Portal</a><br><br>
-              </div>
+                <div class="header-tag">
+                    <i class="fa-solid fa-circle-info header-tag-icon"></i>
+                    <span class="header-tag-text">About Us</span>
+                </div>
+                <h2>What Is the Skeena Salmon Data Centre?</h2>
+                <p>The <strong>SSDC</strong> is a centralized platform for accessing high-quality, open-access data related to wild Pacific salmonids in the Skeena River watershed. <br><br>Maintained by the <strong>Skeena Knowledge Trust</strong>, the SSDC connects researchers, governments, and communities with the knowledge they need to protect salmon and their habitats.</p>
+                
+                <div class="features">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-square-check"></i>
+                        </div>
+                        <span class="feature-text">Centralized Data Repository</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-square-check"></i>
+                        </div>
+                        <span class="feature-text">Open Access Resources</span>
+                    </div>
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fa-solid fa-square-check"></i>
+                        </div>
+                        <span class="feature-text">Community Knowledge Sharing</span>
+                    </div>
+                </div>
+                
+                <a href="#" class="cta-button" target="_blank" rel="noopener noreferrer">
+                    Learn more about the SSDC
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
             </div>
-          </div>
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="card">
-              <img class="card-img-top" src="css/gfx/pan-help.png" alt="Skeena Salmon Data Centre Help Pages">
-              <div class="card-body">
-                <p class="card-text">New to the Skeena Salmon Data Centre?</p>
-                <a class="btn-blue" href="https://www.manula.com/manuals/skeena-knowledge-trust/skeena-knowledge-trust/1/en/topic/skeena-salmon-data-centre">View Help Pages</a><br><br>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="card">
-              <img class="card-img-top" src="css/gfx/pan-skt.png" alt="Skeena Knowledge Trust">
-              <div class="card-body">
-                <p class="card-text">See how others are using the Data Centre</p>
-                <a class="btn-blue" href="https://www.skeenatrust.ca/what-we-do/">View Case Studies</a><br><br>
-              </div>
-            </div>
-          </div>
         </div>
     </section>
+
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stats-header">
+                <div class="par-header-tag">
+                    <i class="fa-solid fa-chart-line par-header-tag-icon"></i>
+                    <span class="par-header-tag-text">Statistics</span>
+                </div>
+                <h2 class="par-section-title">By the Numbers</h2>
+                <p class="par-section-description">Discover the scale and impact of the SSDC through our growing collection of datasets and resources.</p>
+            </div>
+            
+            <div class="stats-cards">
+                <div class="stats-card">
+                    <div class="stats-icon">
+                        <i class="fa-solid fa-database"></i>
+                    </div>
+                    <div class="stats-number">
+                        <span class="count-up" data-count="{{ h.get_site_statistics().dataset_count }}">0</span>
+                    </div>
+                    <div class="stats-label">Datasets</div>
+                </div>
+                
+                <div class="stats-card">
+                    <div class="stats-icon">
+                        <i class="fa-solid fa-file-lines"></i>
+                    </div>
+                    <div class="stats-number">
+                        <span class="count-up" data-count="{{ h.get_total_resource_count() }}">0</span>
+                    </div>
+                    <div class="stats-label">Total Files/Resources</div>
+                </div>
+                
+                <div class="stats-card">
+                    <div class="stats-icon">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+                    <div class="stats-number">
+                        <span class="count-up" data-count="{{ h.get_site_statistics().organization_count }}">0</span>
+                    </div>
+                    <div class="stats-label">Contributing Organizations</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+<section class="recent-datasets-section">
+  <div class="recent-datasets-container">
+    <div class="recent-datasets-header">
+      <div class="header-tag">
+          <i class="fa-regular fa-clock header-tag-icon"></i>
+          <span class="header-tag-text">Latest Updates</span>
+      </div>
+      <h2 class="section-title">Recently Added</h2>
+      <p class="section-description">Explore the newest datasets added to the SSDC</p>
+    </div>
+    
+    <div class="recent-datasets-grid">
+      {% set recent_datasets = h.get_recent_datasets(3) %}
+      {% for package in recent_datasets %}
+        <div class="dataset-card">
+          <div class="dataset-card-content">
+            <div class="dataset-header">
+              <span class="dataset-type">
+                <i class="fa-solid fa-database"></i>
+                Dataset
+              </span>
+              <div class="dataset-resource-count">
+                <i class="fa-solid fa-file-lines"></i>
+                <span class="count">{{ package.resources|length }}</span>
+              </div>
+            </div>
+            <h3 class="dataset-title">
+              <a href="{{ h.url_for('dataset.read', id=package.name) }}">{{ package.title or package.name }}</a>
+            </h3>
+            <div class="dataset-meta">
+              <div class="dataset-org">
+                {% set org = package.organization %}
+                <span>{{ org.title }}</span>
+              </div>
+              <div class="dataset-date">
+                <i class="fa-regular fa-calendar"></i>
+                <span>{{ h.render_datetime(package.metadata_created, '%b %d, %Y') }}</span>
+              </div>
+            </div>
+          </div>
+          <div class="dataset-card-footer">
+            <a href="{{ h.url_for('dataset.read', id=package.name) }}" class="dataset-view-btn">
+              View Dataset
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      {% else %}
+        <div class="no-datasets">
+          <i class="fa-solid fa-database no-data-icon"></i>
+          <p>No datasets available at the moment.</p>
+        </div>
+      {% endfor %}
+    </div>
+    
+    <div class="recent-datasets-action">
+      <a href="{{ h.url_for('dataset.search') }}" class="cta-button">
+        Explore All Datasets
+        <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="useful-links-section">
+  <div class="useful-links-container">
+    <div class="useful-links-header">
+      <div class="header-tag">
+        <i class="fa-solid fa-link header-tag-icon"></i>
+        <span class="header-tag-text">Resources</span>
+      </div>
+      <h2 class="section-title">Tools & Guides</h2>
+      <p class="section-description">Explore additional support materials to help you get the most from the SSDC.</p>
+    </div>
+    
+    <div class="useful-links-grid">
+      <a href="https://www.manula.com/manuals/skeena-knowledge-trust/skeena-knowledge-trust/1/en/topic/skeena-salmon-data-centre" class="resource-card" id="help-pages" target="_blank" rel="noopener noreferrer">
+        <div class="resource-icon">
+          <i class="fa-solid fa-circle-question"></i>
+        </div>
+        <div class="resource-content">
+          <h3 class="resource-title">Help Pages</h3>
+          <p class="resource-description">Learn how to search, download, and contribute valuable data to the SSDC platform.</p>
+          <span class="resource-link">
+            Get Help
+            <i class="fa-solid fa-arrow-right"></i>
+          </span>
+        </div>
+      </a>
+      
+      <a href="https://www.skeenatrust.ca/what-we-do/" class="resource-card" id="case-studies" target="_blank" rel="noopener noreferrer">
+        <div class="resource-icon">
+          <i class="fa-solid fa-book-open"></i>
+        </div>
+        <div class="resource-content">
+          <h3 class="resource-title">Case Studies</h3>
+          <p class="resource-description">See how organizations use SKT tools in real-world projects</p>
+          <span class="resource-link">
+            View Studies
+            <i class="fa-solid fa-arrow-right"></i>
+          </span>
+        </div>
+      </a>
+
+      <a href="https://maps.skeenasalmon.info/" class="resource-card" id="maps-portal" target="_blank" rel="noopener noreferrer">
+        <div class="resource-icon">
+          <i class="fa-solid fa-map-location-dot"></i>
+        </div>
+        <div class="resource-content">
+          <h3 class="resource-title">Skeena Maps Portal</h3>
+          <p class="resource-description">Explore interactive spatial layers from the Skeena watershed with our dynamic mapping tools</p>
+          <span class="resource-link">
+            Explore Maps
+            <i class="fa-solid fa-arrow-right"></i>
+          </span>
+        </div>
+      </a>
+      
+    </div>
+  </div>
+</section>
+
+  {% endblock %}
+</div>
 {% endblock %}

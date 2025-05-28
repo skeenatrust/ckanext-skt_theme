@@ -1,0 +1,135 @@
+{# org seection #}
+{% if pkg_dict.organization %}
+<section class="organization-info mb-4">
+  <h3>{{ _('Contributing Organization') }}</h3>
+  <div class="organization-card p-4 bg-light border rounded-3 shadow-sm">
+    <div class="d-flex align-items-center">
+      <div class="organization-image me-4 flex-shrink-0">
+        <a href="{{ h.url_for('organization.read', id=pkg_dict.organization.name) }}">
+          <img src="{{ pkg_dict.organization.image_display_url or h.url_for_static('/base/images/placeholder-organization.png') }}" 
+               width="120" 
+               height="120"
+               alt="{{ pkg_dict.organization.name }}" 
+               class="img-fluid rounded-3 border border-2 border-white shadow-sm"
+               style="object-fit: cover;" />
+        </a>
+      </div>
+      
+      <div class="organization-details flex-grow-1">
+        <h4 class="organization-name mb-3 fw-bold">
+          <a href="{{ h.url_for('organization.read', id=pkg_dict.organization.name) }}" 
+             class="text-decoration-none text-dark hover-link">
+            {{ pkg_dict.organization.display_name or pkg_dict.organization.title or pkg_dict.organization.name }}
+          </a>
+        </h4>
+        
+        {% if pkg_dict.organization.description %}
+        <div class="organization-description mb-3">
+          <p class="text-muted mb-2 lh-base">
+            {{ h.markdown_extract(h.get_translated(pkg_dict.organization, 'description'), extract_length=250) }}
+          </p>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{# additional info section #}
+<section class="additional-info">
+  <h3>{{ _('Additional Info') }}</h3>
+  <table class="table table-striped table-bordered table-condensed">
+    <thead>
+      <tr>
+        <th scope="col">{{ _('Field') }}</th>
+        <th scope="col">{{ _('Value') }}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% block package_additional_info %}
+        {% if pkg_dict.url %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ _('Source') }}</th>
+            {% if h.is_url(pkg_dict.url) %}
+              <td class="dataset-details" property="foaf:homepage">
+                <a href="{{ pkg_dict.url }}" rel="foaf:homepage" target="_blank">
+                  {{ pkg_dict.url }}
+                </a>
+              </td>
+            {% else %}
+              <td class="dataset-details" property="foaf:homepage">{{ pkg_dict.url }}</td>
+            {% endif %}
+          </tr>
+        {% endif %}
+
+        {% if pkg_dict.author_email %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ _("Author") }}</th>
+            <td class="dataset-details" property="dc:creator">{{ h.mail_to(email_address=pkg_dict.author_email, name=pkg_dict.author) }}</td>
+          </tr>
+        {% elif pkg_dict.author %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ _("Author") }}</th>
+            <td class="dataset-details" property="dc:creator">{{ pkg_dict.author }}</td>
+          </tr>
+        {% endif %}
+
+        {% if pkg_dict.maintainer_email %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ _('Maintainer') }}</th>
+            <td class="dataset-details" property="dc:contributor">{{ h.mail_to(email_address=pkg_dict.maintainer_email, name=pkg_dict.maintainer) }}</td>
+          </tr>
+        {% elif pkg_dict.maintainer %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ _('Maintainer') }}</th>
+            <td class="dataset-details" property="dc:contributor">{{ pkg_dict.maintainer }}</td>
+          </tr>
+        {% endif %}
+
+        {% if pkg_dict.version %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ _("Version") }}</th>
+            <td class="dataset-details">{{ pkg_dict.version }}</td>
+          </tr>
+        {% endif %}
+
+        {% if h.check_access('package_update',{'id':pkg_dict.id}) %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ _("State") }}</th>
+            <td class="dataset-details">{{ _(pkg_dict.state) }}</td>
+          </tr>
+        {% endif %}
+        
+        {% if pkg_dict.metadata_modified %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ _("Last Updated") }}</th>
+            <td class="dataset-details">
+                {% snippet 'snippets/local_friendly_datetime.html', datetime_obj=pkg_dict.metadata_modified %}
+            </td>
+          </tr>
+        {% endif %}
+        
+        {% if pkg_dict.metadata_created %}
+          <tr>
+            <th scope="row" class="dataset-label">{{ _("Created") }}</th>
+            <td class="dataset-details">
+                {% snippet 'snippets/local_friendly_datetime.html', datetime_obj=pkg_dict.metadata_created %}
+            </td>
+          </tr>
+        {% endif %}
+
+        {% block extras scoped %}
+          {% for extra in h.sorted_extras(pkg_dict.extras) %}
+            {% set key, value = extra %}
+            <tr rel="dc:relation" resource="_:extra{{ i }}">
+              <th scope="row" class="dataset-label" property="rdfs:label">{{ _(key|e) }}</th>
+              <td class="dataset-details" property="rdf:value">{{ value }}</td>
+            </tr>
+          {% endfor %}
+        {% endblock %}
+
+      {% endblock %}
+    </tbody>
+  </table>
+</section>
