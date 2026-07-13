@@ -34,7 +34,7 @@ def get_total_resource_count():
         return 0
 
 
-class SktThemeDevPlugin(plugins.SingletonPlugin):
+class SktThemePlugin(plugins.SingletonPlugin):
     plugins.implements(plugins.IConfigurer)
     plugins.implements(plugins.ITemplateHelpers)
     
