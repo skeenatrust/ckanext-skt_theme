@@ -45,10 +45,7 @@
             </div>
           {% endblock %}
 
-          {# Debug info - remove this after confirming the action name #}
-          <!-- DEBUG: Controller: {{ c.controller }}, Action: {{ c.action }}, Request: {{ request.path if request else 'N/A' }}, Package: {{ c.pkg.name if c.pkg else 'N/A' }} -->
-          
-          <div class="row wrapper{% block wrapper_class %}{% endblock %}{% if self.secondary()|trim == '' or c.action=='resource_read' %} no-nav{% endif %}">
+          <div class="row wrapper{% block wrapper_class %}{% endblock %}{% if self.secondary()|trim == '' %} no-nav{% endif %}">
             {#
             The pre_primary block can be used to add content to before the
             rendering of the main content columns of the page.
@@ -57,42 +54,22 @@
             {% endblock %}
 
             {% block secondary %}
-              {# Only hide sidebar on individual dataset pages, not the dataset listing page #}
-              {% set is_single_dataset = (c.pkg and c.pkg.name) or 
-                                          (request and request.path and '/dataset/' in request.path and not request.path.endswith('/dataset/')) %}
-              {% if not is_single_dataset %}
+              {# Hide the sidebar only on the main dataset page. To hide it on more pages, add their endpoints to the list (e.g. 'resource.read'). #}
+              {% set hide_sidebar = request and request.endpoint in ['dataset.read'] %}
+              {% if not hide_sidebar %}
                 <aside class="secondary col-md-3">
-                  {#
-                  The secondary_content block can be used to add content to the
-                  sidebar of the page. This is the main block that is likely to be
-                  used within a template.
-
-                  Example:
-
-                    {% block secondary_content %}
-                      <h2>A sidebar item</h2>
-                      <p>Some content for the item</p>
-                    {% endblock %}
-                  #}
                   {% block secondary_content %}{% endblock %}
                 </aside>
               {% endif %}
             {% endblock %}
 
             {% block primary %}
-              {% set is_single_dataset = (c.pkg and c.pkg.name) or 
-                                          (request and request.path and '/dataset/' in request.path and not request.path.endswith('/dataset/')) %}
-              <div class="primary {% if is_single_dataset %}col-md-12 col-lg-12{% else %}col-md-9{% endif %} col-xs-12" role="main" {% if is_single_dataset %}style="max-width: 100%;"{% endif %}>
+              {# Keep this list identical to the one in the secondary block above. #}
+              {% set hide_sidebar = request and request.endpoint in ['dataset.read'] %}
+              <div class="primary {% if hide_sidebar %}col-md-12 col-lg-12{% else %}col-md-9{% endif %} col-xs-12" role="main" {% if hide_sidebar %}style="max-width: 100%;"{% endif %}>
                 {#
                 The primary_content block can be used to add content to the page.
                 This is the main block that is likely to be used within a template.
-
-                Example:
-
-                  {% block primary_content %}
-                    <h1>My page content</h1>
-                    <p>Some content for the page</p>
-                  {% endblock %}
                 #}
                 {% block primary_content %}
                   <article class="module">
@@ -129,7 +106,7 @@
 
   {#
   Override the footer on a page by page basis by extending this block. If
-  making sitewide header changes it is preferable to override the footer.html-u
+  making sitewide footer changes it is preferable to override the footer.html
   file.
   #}
   {%- block footer %}
